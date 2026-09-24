@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "review-agent"
+version = "0.1.0"
+description = "Python-first GitHub PR code review agent"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "alembic>=1.13,<2",
+    "celery[redis]>=5.4,<6",
+    "fastapi>=0.115",
+    "gitpython>=3.1",
+    "httpx>=0.28",
+    "jsonschema>=4.20",
+    "langchain-core>=0.3",
+    "langgraph>=0.2",
+    "langgraph-checkpoint-postgres>=2,<4",
+    "mcp>=2,<3",
+    "openai>=1.55",
+    "psycopg[binary,pool]>=3,<4",
+    "pydantic>=2.10",
+    "redis>=5,<7",
+    "pydantic-settings>=2.6",
+    "pyyaml>=6.0",
+    "rich>=13.9",
+    "sqlalchemy>=2,<3",
+    "unidiff>=0.7",
+    "uvicorn>=0.32",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/review_agent"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/review_agent/harness/skills/builtin" = "review_agent/harness/skills/builtin"
+
+[project.scripts]
+review-agent = "review_agent.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

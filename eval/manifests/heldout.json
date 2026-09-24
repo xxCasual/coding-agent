@@ -1,0 +1,467 @@
+{
+  "tasks": [
+    {
+      "task_id": "hold-fs-fix-health",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "GET /health should report the service as healthy.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-fix-health/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-fix-unique-ids",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Each successful POST /items must allocate a distinct id.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-fix-unique-ids/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-fix-list-shape",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "GET /items must return an object whose items field is a list of created records.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-fix-list-shape/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-fix-priority-enum",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Reject priority values other than low or high on POST /items.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-fix-priority-enum/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-feat-delete-item",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Add DELETE /items/{id} that removes an item and returns 204. Missing ids return 404.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-feat-delete-item/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-feat-patch-item",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Add PATCH /items/{id} to update quantity. Missing ids return 404.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-feat-patch-item/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-fs-feat-name-query",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "GET /items?name=... must filter created items by exact name.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-feat-name-query/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-fs-contract-v2-priority",
+      "set": "heldout",
+      "category": "contract",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Follow contracts/items-v2.json: POST /items accepts priority low only, quantity remains an integer, and duplicate names are not a 409 in this version.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-contract-v2-priority/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-fs-contract-get-item",
+      "set": "heldout",
+      "category": "contract",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Expose GET /items/{id} whose 200 body matches the Item schema in contracts/items-v1.json (id, name, integer quantity).",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-fs-contract-get-item/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-llm-fix-invalid-code",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Invalid provider payloads must use error code invalid_response.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-fix-invalid-code/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-fix-missing-usage",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "When a successful payload omits usage, keep usage unknown instead of writing zeros.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-fix-missing-usage/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-fix-empty-content",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "A success payload with missing content is invalid_response, not an empty string result.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-fix-empty-content/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-fix-unknown-error",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Unrecognized raw_error values must map to code other and preserve unknown usage.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-fix-unknown-error/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-feat-http-status",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "If the payload includes http_status >= 500, raise code other and attach that status on the error.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-feat-http-status/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-feat-tool-calls-list",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Successful completions must always return a list for tool_calls, never None.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-feat-tool-calls-list/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-llm-feat-failover",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Add complete_with_failover(primary, fallback) that uses fallback when primary raises timeout.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-feat-failover/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-llm-contract-fixture",
+      "set": "heldout",
+      "category": "contract",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Normalize fixtures/response-fixture.json success, timeout, invalid, and auth entries through the adapter: success keeps usage, failures use the documented error codes and unknown usage.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-llm-contract-fixture/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-pb-fix-list-scope",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Listing notes must return only the caller's notes.",
+      "allowed_paths": [
+        "dal.py",
+        "service.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-fix-list-scope/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-pb-fix-delete-scope",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Users must not delete another user's note.",
+      "allowed_paths": [
+        "dal.py",
+        "service.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-fix-delete-scope/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-pb-fix-blank-title",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "POST /notes with a blank title must return HTTP 422 rather than 500.",
+      "allowed_paths": [
+        "api.py",
+        "service.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-fix-blank-title/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-pb-fix-missing-user-header",
+      "set": "heldout",
+      "category": "fix",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Note routes without x-user-id must return 401.",
+      "allowed_paths": [
+        "api.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-fix-missing-user-header/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-pb-feat-delete-route",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Add DELETE /notes/{id} for the owner (204) and 404 for everyone else.",
+      "allowed_paths": [
+        "api.py",
+        "service.py",
+        "dal.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-feat-delete-route/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "hold-pb-feat-search",
+      "set": "heldout",
+      "category": "feature",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Add GET /notes?q= that returns the caller's notes whose title contains the query.",
+      "allowed_paths": [
+        "api.py",
+        "service.py",
+        "dal.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-feat-search/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "hold-pb-contract-note-shape",
+      "set": "heldout",
+      "category": "contract",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Note JSON must include id, user_id, title, body, and revision. Unknown notes return 404 with detail not found.",
+      "allowed_paths": [
+        "api.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/hold-pb-contract-note-shape/check.py"
+      },
+      "reviewer_hard": false
+    }
+  ]
+}

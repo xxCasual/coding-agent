@@ -1,0 +1,26 @@
+{
+  "success": {
+    "content": "ok",
+    "tool_calls": [],
+    "usage": {"input_tokens": 10, "output_tokens": 2},
+    "raw_error": null
+  },
+  "timeout": {
+    "content": "",
+    "tool_calls": [],
+    "usage": null,
+    "raw_error": "timeout"
+  },
+  "invalid": {
+    "content": "",
+    "tool_calls": [],
+    "usage": null,
+    "raw_error": "invalid_response"
+  },
+  "auth": {
+    "content": "",
+    "tool_calls": [],
+    "usage": null,
+    "raw_error": "auth"
+  }
+}

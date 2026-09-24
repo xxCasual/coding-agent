@@ -1,0 +1,77 @@
+diff --git a/app.py b/app.py
+index e12160d..81bd7c2 100644
+--- a/app.py
++++ b/app.py
+@@ -1,4 +1,4 @@
+-from fastapi import FastAPI
++from fastapi import FastAPI, HTTPException, Query
+ 
+ app = FastAPI()
+ 
+@@ -6,3 +6,18 @@ app = FastAPI()
+ @app.get("/health")
+ def health():
+     return {"status": "ok"}
++
++
++@app.get("/greet")
++def greet(name: str | None = Query(default=None)):
++    if name is None:
++        return {"message": "Hello, World!"}
++    trimmed = name.strip()
++    if not trimmed:
++        raise HTTPException(status_code=422, detail="Name must not be blank.")
++    if len(trimmed) > 80:
++        raise HTTPException(
++            status_code=422,
++            detail="Name must be 80 characters or fewer.",
++        )
++    return {"message": f"Hello, {trimmed}!"}
+diff --git a/test_app.py b/test_app.py
+index 5f88594..c0b65d6 100644
+--- a/test_app.py
++++ b/test_app.py
+@@ -6,3 +6,43 @@ def test_health():
+     response = TestClient(app).get("/health")
+     assert response.status_code == 200
+     assert response.json() == {"status": "ok"}
++
++
++def test_greet_without_name():
++    response = TestClient(app).get("/greet")
++    assert response.status_code == 200
++    assert response.json() == {"message": "Hello, World!"}
++
++
++def test_greet_with_name():
++    response = TestClient(app).get("/greet", params={"name": "Alice"})
++    assert response.status_code == 200
++    assert response.json() == {"message": "Hello, Alice!"}
++
++
++def test_greet_trims_whitespace():
++    response = TestClient(app).get("/greet", params={"name": "  Bob  "})
++    assert response.status_code == 200
++    assert response.json() == {"message": "Hello, Bob!"}
++
++
++def test_greet_preserves_unicode():
++    response = TestClient(app).get("/greet", params={"name": "世界"})
++    assert response.status_code == 200
++    assert response.json() == {"message": "Hello, 世界!"}
++
++
++def test_greet_rejects_blank_name():
++    response = TestClient(app).get("/greet", params={"name": "   "})
++    assert response.status_code == 422
++
++
++def test_greet_rejects_too_long_name():
++    response = TestClient(app).get("/greet", params={"name": "a" * 81})
++    assert response.status_code == 422
++
++
++def test_greet_accepts_80_char_name():
++    response = TestClient(app).get("/greet", params={"name": "a" * 80})
++    assert response.status_code == 200
++    assert response.json() == {"message": "Hello, " + "a" * 80 + "!"}

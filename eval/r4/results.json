@@ -1,0 +1,2644 @@
+{
+  "date": "2026-09-23",
+  "status": "partial_real_validation",
+  "pair_valid": false,
+  "pair_invalid_reason": "Reviewer off did not remove explicit delegation tools; both arms invoked Reviewer. Fixed after run; no budget for rerun.",
+  "plan_real_run": "not_run_budget",
+  "budget": {
+    "limit_cny": 5,
+    "initial_accounted_cny": 1.544488,
+    "final_accounted_cny": 4.507638,
+    "r4_known_usage_peak_estimate_cny": 2.96315,
+    "remaining_cny": 0.492362,
+    "required_reservation_cny": 0.5,
+    "r4_request_count": 155,
+    "history_unchanged": true,
+    "historical_unknown_reserved_cny": 1.5
+  },
+  "adjudication": {
+    "kind": "post-run local HTTP adjudication, no model call",
+    "pydantic_version": "2.13.5",
+    "arms": {
+      "reviewer-on": {
+        "source_sha256": "afbdba9edda0e340e8a3815887f6e4dcf9a9f52e9f2c7ec1421973d1f276fb66",
+        "responses": [
+          {
+            "tags": "abc",
+            "status_code": 422
+          },
+          {
+            "tags": "not-a-list",
+            "status_code": 422
+          },
+          {
+            "tags": {
+              "a": 1
+            },
+            "status_code": 422
+          },
+          {
+            "tags": 5,
+            "status_code": 422
+          },
+          {
+            "tags": [
+              1
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              true
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              null
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              {}
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              []
+            ],
+            "status_code": 422
+          }
+        ]
+      },
+      "reviewer-off": {
+        "source_sha256": "6e27a6693f2dd46e073b91f509d6c68c22b1c415337ab0d6a88ef9e54b0a4e1c",
+        "responses": [
+          {
+            "tags": "abc",
+            "status_code": 422
+          },
+          {
+            "tags": "not-a-list",
+            "status_code": 422
+          },
+          {
+            "tags": {
+              "a": 1
+            },
+            "status_code": 422
+          },
+          {
+            "tags": 5,
+            "status_code": 422
+          },
+          {
+            "tags": [
+              1
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              true
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              null
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              {}
+            ],
+            "status_code": 422
+          },
+          {
+            "tags": [
+              []
+            ],
+            "status_code": 422
+          }
+        ]
+      }
+    },
+    "plain_list_str_json_non_strings": [
+      {
+        "value": 1,
+        "rejected": true
+      },
+      {
+        "value": true,
+        "rejected": true
+      },
+      {
+        "value": null,
+        "rejected": true
+      },
+      {
+        "value": {},
+        "rejected": true
+      },
+      {
+        "value": [],
+        "rejected": true
+      }
+    ]
+  },
+  "runs": [
+    {
+      "attempt": "r4-20260922-development",
+      "case": "development",
+      "reviewer_requested": "default",
+      "run_id": "6195d6e2-3f66-44d8-b59f-cbee39dde292",
+      "session_id": "b927be46-241b-40da-85c4-979fa9908997",
+      "status": "interrupted",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "5f1209158a04909660cd97f9",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-development/development/data/workspaces/development/runs/6195d6e2-3f66-44d8-b59f-cbee39dde292/artifacts/commands/accept-6195d6e2-3f66-44d8-b59f-cbee39dde292-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-development/development/data/workspaces/development/runs/6195d6e2-3f66-44d8-b59f-cbee39dde292/artifacts/commands/accept-6195d6e2-3f66-44d8-b59f-cbee39dde292-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=5f1209158a04909660cd97f9"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "development: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 24.1006326669999,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 139026,
+        "output_tokens": 3967,
+        "model_latency_ms": 21517.55520799975,
+        "estimated_cost": 0.309788,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development/development/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-22T14:23:35.211400+00:00"
+      },
+      "reviews": [
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "5f1209158a04909660cd97f9",
+          "subtask_id": "review-6195d6e2",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "5f1209158a04909660cd97f9"
+          },
+          "cache_key": "2f76950fe05ff953641f3dcd328867eef5408262ea28ebadcb2131c865d32f80",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 18,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 18,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 78,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 5
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 7,
+              "end_line": 18
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 78
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.interrupted",
+          "message": "Required review did not complete (interrupted); code and evidence were kept.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "6195d6e2-3f66-44d8-b59f-cbee39dde292",
+          "seq": 75,
+          "payload": {
+            "review_status": "interrupted",
+            "subtask_id": "review-6195d6e2"
+          }
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development/development/data/workspaces/development/runs/6195d6e2-3f66-44d8-b59f-cbee39dde292/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development/manifest.json": "671f875bfedf763ea45fa5060078c8ae690ccd257894247efe569f20c6b7d250",
+        "eval/results/r4-20260922-development/development/development-input.json": "b2b570327274d10a434bba51841c4cc672ed33c13f1bcdbaf46e331c7eb96f03",
+        "eval/results/r4-20260922-development/development/development-result.json": "ea21b49f96d72f862a6aefb4864b7ebabc5b62e4a59378d7c65701565c77aa7d",
+        "eval/results/r4-20260922-development/development/development-events.json": "f05fe148c7bb2011f813606ebb891593b5f486b3c32d479ba88ee75f7ebaf6ee",
+        "eval/results/r4-20260922-development/development/development-tools.json": "dd049ed32ed419fd8d0351871d1fa018a9388a6e477b28eb515209ff5cca5c42",
+        "eval/results/r4-20260922-development/development/development-messages.json": "af02bf27033738e74f95fa204915b3634975f054f3347a173abe72907372d8a7",
+        "eval/results/r4-20260922-development/development/data/workspaces/development/runs/6195d6e2-3f66-44d8-b59f-cbee39dde292/artifacts/delivery.patch": "f37a2630126fc921ba892ee5c5c80ab1f22d441a7937c8a0f945f7a74d87c73c"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-02",
+      "case": "development",
+      "reviewer_requested": "default",
+      "run_id": "c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe",
+      "session_id": "f1aaf1d3-cfb0-4af6-9764-56ee271a37ba",
+      "status": "interrupted",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "6f86f3fae43d86c8c3c8f004",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-development-02/development/data/workspaces/development/runs/c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe/artifacts/commands/accept-c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-development-02/development/data/workspaces/development/runs/c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe/artifacts/commands/accept-c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=6f86f3fae43d86c8c3c8f004"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "development: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 22.39687191600001,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 119729,
+        "output_tokens": 3332,
+        "model_latency_ms": 20236.911959000052,
+        "estimated_cost": 0.266114,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development-02/development/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-22T14:27:56.284232+00:00"
+      },
+      "reviews": [
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [
+            "git_status: output truncated"
+          ],
+          "warnings": [
+            "Reviewer reached its model-step limit without a structured result."
+          ],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11179,
+            "output_tokens": 400,
+            "model_latency_ms": 3421.6123759999846,
+            "estimated_cost": 0.025557999999999997,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "b239e4b1d112bae31302cd1d",
+          "subtask_id": "review-sum-endpoint",
+          "target": {
+            "kind": "workspace_changes",
+            "paths": [],
+            "focus": "Verify POST /sum strict-integer validation (reject bool/float/str), list length bounds 1..20, 422 on missing/null/empty/oversized/invalid elements, HTTP 200 body {sum, count}, and GET /health preserved. Check tests are meaningful.",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "b239e4b1d112bae31302cd1d"
+          },
+          "cache_key": "2b837b03c564290c684514abce48263d4af8d7c88c6f50efcac3eefe9d582fff",
+          "read_records": [
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 108
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 214
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": 8,
+              "output_chars": 108
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": 8,
+              "output_chars": 214
+            }
+          ],
+          "selected_paths": []
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "6f86f3fae43d86c8c3c8f004",
+          "subtask_id": "review-sum-endpoint-2",
+          "target": {
+            "kind": "paths",
+            "paths": [
+              "app.py",
+              "test_app.py"
+            ],
+            "focus": "Verify POST /sum strict-integer validation (reject bool/float/str), list length bounds 1..20, 422 on missing/null/empty/oversized/invalid elements, HTTP 200 body {sum, count}, and GET /health preserved. Check tests are meaningful.",
+            "baseline": "",
+            "workspace_revision": "6f86f3fae43d86c8c3c8f004"
+          },
+          "cache_key": "29b602c2993a2bff3dc252e8444ab0a0a158a7047d5d06f1d80ffe838456539e",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_file"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_file"
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "6f86f3fae43d86c8c3c8f004",
+          "subtask_id": "review-sum-endpoint-4",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "Verify POST /sum strict-integer validation (reject bool/float/str), list length bounds 1..20, 422 on missing/null/empty/oversized/invalid elements, HTTP 200 body {sum, count}, and GET /health preserved. Check tests are meaningful.",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "6f86f3fae43d86c8c3c8f004"
+          },
+          "cache_key": "d56df764d9f7581ec82d1be0d5c35d31f30abb8d4818d183fd5c27ccf5d50a1a",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 7
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 9,
+              "end_line": 23
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 70
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "6f86f3fae43d86c8c3c8f004",
+          "subtask_id": "review-sum-endpoint-5",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "Verify POST /sum strict-integer validation (reject bool/float/str), list length bounds 1..20, 422 on missing/null/empty/oversized/invalid elements, HTTP 200 body {sum, count}, and GET /health preserved. Check tests are meaningful.",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "6f86f3fae43d86c8c3c8f004"
+          },
+          "cache_key": "d56df764d9f7581ec82d1be0d5c35d31f30abb8d4818d183fd5c27ccf5d50a1a",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 7
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 9,
+              "end_line": 23
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 70
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "6f86f3fae43d86c8c3c8f004",
+          "subtask_id": "review-sum-endpoint-5",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "6f86f3fae43d86c8c3c8f004"
+          },
+          "cache_key": "d04af57f171d7543f87444d34d0a08873f92a3e47299d3df5940701aa03ac2e8",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 23,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 7
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 9,
+              "end_line": 23
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 70
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.interrupted",
+          "message": "Required review did not complete (interrupted); code and evidence were kept.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe",
+          "seq": 70,
+          "payload": {
+            "review_status": "interrupted",
+            "subtask_id": "review-sum-endpoint-5"
+          }
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development-02/development/data/workspaces/development/runs/c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-02/manifest.json": "8ef38da299b7eaec9a826a8f98307d07862977944eaa0be6c1b7dd8b6abbd4e0",
+        "eval/results/r4-20260922-development-02/development/development-input.json": "0d7f5bfcdd5ece85980069e571732fb76b9f6168218b22d46f966e0bd5b6062d",
+        "eval/results/r4-20260922-development-02/development/development-result.json": "7093109f33ce6ff7e39c9c2e8273740457098ae6da1d40cde7f1632da6d7f235",
+        "eval/results/r4-20260922-development-02/development/development-events.json": "4e984797613d8de7fe622f12c1628ecbb7de453bfc2f098f76111a91cc28af0c",
+        "eval/results/r4-20260922-development-02/development/development-tools.json": "977c8b4bd4f9e878fc431d83218e39e457ce0244bdd11952bb9ef9f3eb099788",
+        "eval/results/r4-20260922-development-02/development/development-messages.json": "75ddb7bb877b4278136e93276c782e5aee6776eb9eafc32efb8d343d0129c0b3",
+        "eval/results/r4-20260922-development-02/development/data/workspaces/development/runs/c85ab5d4-ead4-4bd3-bfcf-cf04bd5e5ffe/artifacts/delivery.patch": "6f83b3beecd5ba775f71b5cd19763a0f4550e0176f26f001d2f7c88129e7ac38"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-03",
+      "case": "development",
+      "reviewer_requested": "default",
+      "run_id": "b480e4f2-5369-4853-b45b-cea50ea21eb5",
+      "session_id": "9cd95204-4a2b-41f9-826f-13870bfd677c",
+      "status": "succeeded",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "eda2533a67f454133a4bb010",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/b480e4f2-5369-4853-b45b-cea50ea21eb5/artifacts/commands/accept-b480e4f2-5369-4853-b45b-cea50ea21eb5-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/b480e4f2-5369-4853-b45b-cea50ea21eb5/artifacts/commands/accept-b480e4f2-5369-4853-b45b-cea50ea21eb5-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=eda2533a67f454133a4bb010"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "development: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 15.533627916999876,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 82623,
+        "output_tokens": 1873,
+        "model_latency_ms": 13627.387042000237,
+        "estimated_cost": 0.18023000000000003,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development-03/development/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-22T14:30:04.487139+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 9971,
+            "output_tokens": 86,
+            "model_latency_ms": 1314.6924589998434,
+            "estimated_cost": 0.02063,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "eda2533a67f454133a4bb010",
+          "subtask_id": "delivery-review",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "eda2533a67f454133a4bb010"
+          },
+          "cache_key": "41584863a69f7da126eeb18c03ce14e8d716398718f32fc9314c17c186d0b999",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 29,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 29
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 70
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 654
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 1859
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 10102,
+            "output_tokens": 71,
+            "model_latency_ms": 1555.0464159998683,
+            "estimated_cost": 0.020772,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "eda2533a67f454133a4bb010",
+          "subtask_id": "delivery-review",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "eda2533a67f454133a4bb010"
+          },
+          "cache_key": "3e2bac2c813a0b0dd304612e5f174406e9b7645bb46d3786d8397f0ba94b0d26",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 29,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 70,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 29
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 70
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 654
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.succeeded",
+          "message": "The implementation is complete and verified. Here's the summary:\n\n## Changes\n\n**`app.py`** — added `POST /sum`:\n- `SumRequest` model with `values: List[StrictInt]`. `StrictInt` rejects `bool`, `float`, and `str` (Pydantic's strict mode), and rejects non-list inputs.\n- `field_validator` enforces nonempty and ≤20 items, raising `ValueError` → HTTP 422.\n- Handler returns `{\"sum\": sum(values), \"count\": len(values)}` with HTTP 200.\n- `GET /health` preserved unchanged.\n\nPydantic/FastAPI natively return 422 for missing `values`, `null`, wrong types, and validator failures, covering all required error paths.\n\n**`test_app.py`** — 12 tests covering: health preservation, basic sum, single/negative values, exactly 20 items (boundary), and 422 cases for missing values, null, empty list, 21 items, booleans, floats, strings, and non-list input.\n\n## Verification\n- `python -m pytest -q` → **12 passed** (1 unrelated starlette deprecation warning).\n- Review handling: delegated the required `run_changes` delivery review on revision `eda2533a67f454133a4bb010` — completed with **0 findings**, so no dispositions were needed.\n\nNo dependencies installed; only `app.py` and `test_app.py` were modified.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "b480e4f2-5369-4853-b45b-cea50ea21eb5",
+          "seq": 45,
+          "payload": {}
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/b480e4f2-5369-4853-b45b-cea50ea21eb5/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-03/manifest.json": "85e1b1c10693088c1e236cc8ef1973d65eaa74b436ed16d9919142bad8dec36a",
+        "eval/results/r4-20260922-development-03/development/development-input.json": "a7d1244b9cd3ef7e82df471739573b2319d3e29d8899e1fab04b42e2b0f8c6a3",
+        "eval/results/r4-20260922-development-03/development/development-result.json": "57d0bda6980244a87fb8d43ac432107a74926ebf8b431b45a692d276e2e07877",
+        "eval/results/r4-20260922-development-03/development/development-events.json": "873aca79d4922836ef7b6007f9d400e452e379721ea1e41cbd67a549f838dfda",
+        "eval/results/r4-20260922-development-03/development/development-tools.json": "caf8751b85184ce54eb31315fe92616e9e2674e98b716cb5b1e4fa9d11bf5d0c",
+        "eval/results/r4-20260922-development-03/development/development-messages.json": "09b4a36bfd7a5f8d03ab6e0216569de1e64ef7afab442507cf3695d433c2c063",
+        "eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/b480e4f2-5369-4853-b45b-cea50ea21eb5/artifacts/delivery.patch": "97be45ff9fc4ab4a59198a96494ac1d3b900e73a525167cfdce18a05e361f5cb"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-03",
+      "case": "review",
+      "reviewer_requested": "default",
+      "run_id": "f76531c7-c911-4d95-a442-66eb394d1a5a",
+      "session_id": "7dfb0ac3-2d6c-4c72-b6ea-2b23ba042513",
+      "status": "succeeded",
+      "verification": {
+        "status": "not_applicable",
+        "workspace_revision": "ebcb5e4c3f3dafde5af9c27e",
+        "command": null,
+        "exit_code": null,
+        "evidence_refs": []
+      },
+      "hidden": null,
+      "elapsed_seconds": 9.14007800000013,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 24448,
+        "output_tokens": 1558,
+        "model_latency_ms": 8839.442788999804,
+        "estimated_cost": 0.06136,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "review-existing",
+        "display_name": "review-existing",
+        "path": "<repo>/eval/results/r4-20260922-development-03/review-existing/original",
+        "source_run_id": null,
+        "source_revision": "ebcb5e4c3f3dafde5af9c27e",
+        "baseline_commit": "6ff8e9c6f58bccdaf36edf9165e02b701b6b4279",
+        "prepared_at": "2026-09-22T14:30:20.076632+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "health-status-regression",
+              "hunk_id": "app.py:5:1",
+              "file_path": "app.py",
+              "start_line": 7,
+              "end_line": 8,
+              "severity": "high",
+              "category": "bug",
+              "title": "GET /health returns {status: broken} instead of {status: ok}",
+              "evidence": "git_diff on app.py shows the single uncommitted change: -    return {\"status\": \"ok\"} / +    return {\"status\": \"broken\"}. read_file confirms line 8 is `return {\"status\": \"broken\"}` inside the `@app.get(\"/health\")` handler (lines 6-8). The hunk metadata independently records hunk_id app.py:5:1 with the same modified line.",
+              "explanation": "The requirement states GET /health must still return {status: ok}. The only change in the workspace alters that exact response body to \"broken\", so the endpoint contract is violated and any health check or smoke test asserting status == \"ok\" will fail. Related test evidence references test_app.py (TestClient), indicating such verification exists in the repo.",
+              "suggestion": "Revert the handler body to `return {\"status\": \"ok\"}` (i.e., drop the uncommitted change to app.py).",
+              "confidence": 1.0,
+              "is_blocking": true
+            }
+          ],
+          "coverage": [
+            "app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 3659,
+            "output_tokens": 327,
+            "model_latency_ms": 2575.8350410001185,
+            "estimated_cost": 0.009934,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "ebcb5e4c3f3dafde5af9c27e",
+          "subtask_id": "review-workspace-changes",
+          "target": {
+            "kind": "workspace_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "ebcb5e4c3f3dafde5af9c27e"
+          },
+          "cache_key": "3037597cf76b0973889e0b964d03eeb6351383fa9322d2b59d70add65894b5d0",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 8,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 5,
+              "end_line": 8
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 112
+            }
+          ],
+          "selected_paths": [
+            "app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.succeeded",
+          "message": "Review completed: 1 finding(s). Code acceptance: not applicable.\nTarget: Original workspace changes\nPaths: All within target\nRevision: ebcb5e4c3f3dafde5af9c27e\n- app.py:7 GET /health returns {status: broken} instead of {status: ok}\n  git_diff on app.py shows the single uncommitted change: -    return {\"status\": \"ok\"} / +    return {\"status\": \"broken\"}. read_file confirms line 8 is `return {\"status\": \"broken\"}` inside the `@app.get(\"/health\")` handler (lines 6-8). The hunk metadata independently records hunk_id app.py:5:1 with the same modified line.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "f76531c7-c911-4d95-a442-66eb394d1a5a",
+          "seq": 31,
+          "payload": {
+            "task_mode": "review"
+          }
+        }
+      ],
+      "delivery_patch": null,
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-03/manifest.json": "85e1b1c10693088c1e236cc8ef1973d65eaa74b436ed16d9919142bad8dec36a",
+        "eval/results/r4-20260922-development-03/review-existing/review-input.json": "0214cba87fb833dd816281a4ecb09fe7daf601f18b673bf5cb6b4812bb0a1258",
+        "eval/results/r4-20260922-development-03/review-existing/review-result.json": "d3a997d6922a8d35537718f60d06d3382d6c765792dd72191f33eee8d2258e95",
+        "eval/results/r4-20260922-development-03/review-existing/review-events.json": "7a4d7d36a6110d963c96f8ffcd46f15098328b559b676697e3c1cadc318cac69",
+        "eval/results/r4-20260922-development-03/review-existing/review-tools.json": "38082a32685b24869fb54869b900db5995f00376af585e12bd22c3d71c091032",
+        "eval/results/r4-20260922-development-03/review-existing/review-messages.json": "aa4d37cfecd2d8a3d3aa764c927af09415bf233e046d0ec8eb67ae309739655a"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-03",
+      "case": "followup",
+      "reviewer_requested": "default",
+      "run_id": "95aba0a5-267d-43b1-b316-bb1f9c8352a1",
+      "session_id": "9cd95204-4a2b-41f9-826f-13870bfd677c",
+      "status": "failed",
+      "verification": null,
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "followup: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 23.668457999999873,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 199519,
+        "output_tokens": 3591,
+        "model_latency_ms": 22923.20987500011,
+        "estimated_cost": 0.42776600000000004,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development-03/development/original",
+        "source_run_id": "b480e4f2-5369-4853-b45b-cea50ea21eb5",
+        "source_revision": "eda2533a67f454133a4bb010",
+        "baseline_commit": "543a6f0bffcda3f18ca25f724423aa667effe29f",
+        "prepared_at": "2026-09-22T14:30:29.237179+00:00"
+      },
+      "reviews": [],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.failed",
+          "message": "Reached max agent steps before a final answer.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "95aba0a5-267d-43b1-b316-bb1f9c8352a1",
+          "seq": 72,
+          "payload": {}
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/95aba0a5-267d-43b1-b316-bb1f9c8352a1/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-03/manifest.json": "85e1b1c10693088c1e236cc8ef1973d65eaa74b436ed16d9919142bad8dec36a",
+        "eval/results/r4-20260922-development-03/development/followup-input.json": "bee4612128c7d92dbbf12cc022262f819ddaf734d63cbba6a7e8efc63654cf0b",
+        "eval/results/r4-20260922-development-03/development/followup-result.json": "3b254c99e082c29083f529d37ce5d7a5d09b539dc084aecadc373b246dd704f3",
+        "eval/results/r4-20260922-development-03/development/followup-events.json": "697748f3d1c32562cd4547da29bf77bd2d1f4502212c046914db4b2d0b170608",
+        "eval/results/r4-20260922-development-03/development/followup-tools.json": "50359b77063cc759bf4c2196a757e0303360832304d063b14dbb0e9ca9e7c336",
+        "eval/results/r4-20260922-development-03/development/followup-messages.json": "936f4e196cc9a09b801ce90538661a6d1943e77b4e2429b7697253a100846400",
+        "eval/results/r4-20260922-development-03/development/data/workspaces/development/runs/95aba0a5-267d-43b1-b316-bb1f9c8352a1/artifacts/delivery.patch": "1f8353fa1d2f9988db57fafb3c9dfe33d5fdd90ae3d3dc8a749f6e23b16afe08"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-04",
+      "case": "development",
+      "reviewer_requested": "default",
+      "run_id": "f18f8829-e5ed-48c6-8cc9-1da04c48974d",
+      "session_id": "0f3b48e1-9334-47ff-8b43-44367977b773",
+      "status": "interrupted",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "01c198f01a7da245964ff7c5",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-development-04/development/data/workspaces/development/runs/f18f8829-e5ed-48c6-8cc9-1da04c48974d/artifacts/commands/accept-f18f8829-e5ed-48c6-8cc9-1da04c48974d-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-development-04/development/data/workspaces/development/runs/f18f8829-e5ed-48c6-8cc9-1da04c48974d/artifacts/commands/accept-f18f8829-e5ed-48c6-8cc9-1da04c48974d-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=01c198f01a7da245964ff7c5"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "development: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 15.152306667000175,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 75856,
+        "output_tokens": 2112,
+        "model_latency_ms": 13616.639415000463,
+        "estimated_cost": 0.168608,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development-04/development/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-22T14:32:38.634872+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 10431,
+            "output_tokens": 71,
+            "model_latency_ms": 1528.6476249998486,
+            "estimated_cost": 0.021429999999999998,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "01c198f01a7da245964ff7c5",
+          "subtask_id": "review-sum-endpoint",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "01c198f01a7da245964ff7c5"
+          },
+          "cache_key": "e42dcafc725d9229646a20651ee25dc02ffff8c8228d769076ad73cfaa0c679b",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 25,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 84,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 25
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 84
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 503
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer reached its model-step limit without a structured result."
+          ],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11802,
+            "output_tokens": 191,
+            "model_latency_ms": 1587.1289169999727,
+            "estimated_cost": 0.025132,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "01c198f01a7da245964ff7c5",
+          "subtask_id": "review-sum-endpoint",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "01c198f01a7da245964ff7c5"
+          },
+          "cache_key": "89df5879b02148e12a4734bf91750e58b6552a7eb903b7893de38bc3773a3cb7",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 25,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 84,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 25
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 84
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 503
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2411
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.interrupted",
+          "message": "Required review did not complete (interrupted); code and evidence were kept.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "f18f8829-e5ed-48c6-8cc9-1da04c48974d",
+          "seq": 40,
+          "payload": {
+            "review_status": "interrupted",
+            "subtask_id": "review-sum-endpoint"
+          }
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development-04/development/data/workspaces/development/runs/f18f8829-e5ed-48c6-8cc9-1da04c48974d/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-04/manifest.json": "b0a437c3d42663bbd2a6f9786b8fa0b46de69231fc9315d2c9dc0cf2c430880a",
+        "eval/results/r4-20260922-development-04/development/development-input.json": "194f98ef8243e1d5731f22a0dcf58591f4beb5545392b6b9f6c6ac0bff24178e",
+        "eval/results/r4-20260922-development-04/development/development-result.json": "497b4e8f4b11927df9e24b5446bc415c0dd8cc866f656fa54db11754e1c6fd35",
+        "eval/results/r4-20260922-development-04/development/development-events.json": "dcdf154ef59968926248a2d576d148a8830c74526312e076a6ccb088cc924ced",
+        "eval/results/r4-20260922-development-04/development/development-tools.json": "c8379ffba634295ac17619461c9fcb289825cf070d705ff3059ab3911e76d874",
+        "eval/results/r4-20260922-development-04/development/development-messages.json": "be3e18143e40ce7841c9bacdb67dbf121b215970a5f2d8a309ead7569bed9b39",
+        "eval/results/r4-20260922-development-04/development/data/workspaces/development/runs/f18f8829-e5ed-48c6-8cc9-1da04c48974d/artifacts/delivery.patch": "8c8e8ec942d35e5d029e3fb56c42a515a0f324e6c9ef66e042046b28d2345ef6"
+      }
+    },
+    {
+      "attempt": "r4-20260922-development-05",
+      "case": "development",
+      "reviewer_requested": "default",
+      "run_id": "7a87df1a-74db-41d8-994f-70554dc5c0b3",
+      "session_id": "771f8191-e45a-4b7e-ba97-a35b4a71f3f2",
+      "status": "interrupted",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "66c82b35dc4059cde09bd27c",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-development-05/development/data/workspaces/development/runs/7a87df1a-74db-41d8-994f-70554dc5c0b3/artifacts/commands/accept-7a87df1a-74db-41d8-994f-70554dc5c0b3-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-development-05/development/data/workspaces/development/runs/7a87df1a-74db-41d8-994f-70554dc5c0b3/artifacts/commands/accept-7a87df1a-74db-41d8-994f-70554dc5c0b3-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=66c82b35dc4059cde09bd27c"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "development: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 32.993154457999935,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 171787,
+        "output_tokens": 5380,
+        "model_latency_ms": 30361.90487499971,
+        "estimated_cost": 0.38661399999999996,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "development",
+        "display_name": "development",
+        "path": "<repo>/eval/results/r4-20260922-development-05/development/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-22T14:33:38.794840+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "validator-strictness-style",
+              "hunk_id": "app.py:25:2",
+              "file_path": "app.py",
+              "start_line": 8,
+              "end_line": 20,
+              "severity": "info",
+              "category": "bug",
+              "title": "Validator relies on manual isinstance checks; minor redundancy but correct semantics",
+              "evidence": "validate_values checks `not isinstance(value, list) or isinstance(value, bool)` then iterates checking `isinstance(item, bool) or not isinstance(item, int)`. Combined with `mode=\"before\"` this rejects bool/float/str/nested-list elements and produces 422 responses.",
+              "explanation": "The implementation meets the stated requirements: strict int elements, bool rejection (bool is a subclass of int, correctly excluded), 1..20 length bounds, and 422 on missing/None/empty/oversized/invalid payloads via pydantic validation errors. The `isinstance(value, bool)` guard on the container is redundant (a bool is never a list) but harmless. No functional defect found.",
+              "suggestion": "Optionally simplify by dropping the redundant `isinstance(value, bool)` container check, or use `StrictInt` with `conint`/`Annotated` and `min_length`/`max_length` for more idiomatic pydantic v2 validation.",
+              "confidence": 0.7,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "missing-verification-evidence",
+              "hunk_id": "test_app.py:2:1",
+              "file_path": "test_app.py",
+              "start_line": 1,
+              "end_line": 81,
+              "severity": "info",
+              "category": "bug",
+              "title": "No pytest run evidence provided for the acceptance command",
+              "evidence": "Verification evidence bundle is empty ({}), and the acceptance criterion requires running ['python','-m','pytest','-q']. No tool_evidence entries are present in any context bundle.",
+              "explanation": "The acceptance check depends on executing the test suite via `python -m pytest -q`, but no output, exit code, or captured stdout is attached to the review context. The review cannot confirm the tests pass, and I do not have a shell execution tool available to reproduce the run. This is a process/verification gap rather than a code defect; the code and tests look otherwise correct by inspection.",
+              "suggestion": "Attach the pytest output (e.g., the final summary line showing all tests passed) to the verification evidence so the acceptance check can be confirmed.",
+              "confidence": 0.7,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 12734,
+            "output_tokens": 606,
+            "model_latency_ms": 3880.7798330003607,
+            "estimated_cost": 0.030316,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "122d76e0bef6f7de18260f9a",
+          "subtask_id": "review-sum-endpoint",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "122d76e0bef6f7de18260f9a"
+          },
+          "cache_key": "8121017eb85bb28801a234233a57a48232d8c3d782858179885724b06b53e975",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 5,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 81,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 23
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 25,
+              "end_line": 32
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 81
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 926
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2194
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "F1",
+              "hunk_id": "app.py:25:2",
+              "file_path": "app.py",
+              "start_line": 5,
+              "end_line": 12,
+              "severity": "medium",
+              "category": "bug",
+              "title": "Field validator with mode='before' bypasses missing/null handling nuances and rejects None only incidentally",
+              "evidence": "validate_values runs in mode='before'; for values=None it raises ValueError (→422) and for missing values pydantic reports 'Field required' (→422). However, the explicit type annotation list[int] combined with the pre-validator means the intentional rejection logic is only in the validator; the pydantic list[int] coercion path is fully suppressed by returning the raw list in mode='before', which is correct here, but there is no assertion in tests checking the error detail/location, and no test verifying whitespace/negative/edge integer coercion is not applied.",
+              "explanation": "The implementation is functionally correct against the stated acceptance criteria (empty, >20, missing, null, bool/float/str/nested all produce 422; valid ints produce 200). But `mode='before'` disables pydantic's normal coercion and its own list-length/type checks, so all validation correctness rests on this hand-written validator, whose behavior is not asserted beyond status codes. This is a maintainability/robustness concern, not a functional failure.",
+              "suggestion": "Add assertions on the 422 error body (e.g. response.json()['detail']) to pin the failure location to 'values', and/or use field constraints (e.g. conlist(int, min_length=1, max_length=20) with strict ints) to make the contract declarative and independently enforced.",
+              "confidence": 0.6,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "F2",
+              "hunk_id": "test_app.py:2:1",
+              "file_path": "test_app.py",
+              "start_line": 1,
+              "end_line": 4,
+              "severity": "low",
+              "category": "bug",
+              "title": "Module-level TestClient shares global state; acceptable but could mask import-time errors",
+              "evidence": "client = TestClient(app) is instantiated at import time rather than per-test fixture.",
+              "explanation": "Functionally fine in this small app, but a module-level client can mask app-construction errors and diverges from the common pytest fixture pattern. No functional impact on the required pytest run.",
+              "suggestion": "Consider using a pytest fixture returning TestClient(app) per test for isolation and clearer failure attribution.",
+              "confidence": 0.5,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 12614,
+            "output_tokens": 587,
+            "model_latency_ms": 4113.143501000195,
+            "estimated_cost": 0.029924000000000003,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "c7f57859665cb094f0e2dcf6",
+          "subtask_id": "delivery-review",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "c7f57859665cb094f0e2dcf6"
+          },
+          "cache_key": "10519c8e2e8cde9c88febb616664db574b903caef79fe8652e61ae20d16a03c5",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 5,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 81,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 23
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 25,
+              "end_line": 32
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 2,
+              "end_line": 81
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 899
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2194
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "f2",
+              "hunk_id": "test_app.py:1:1",
+              "file_path": "test_app.py",
+              "start_line": 1,
+              "end_line": 93,
+              "severity": "medium",
+              "category": "bug",
+              "title": "No test evidence that the test suite was executed (python -m pytest -q)",
+              "evidence": "Verification evidence bundle is empty ({}); no pytest output is attached. Acceptance requires running python -m pytest -q.",
+              "explanation": "The tests themselves are comprehensive and assert status codes plus the detail loc for each rejection case, but the review bundle contains no captured pytest run output (.e.g. '15 passed'), so the acceptance criterion that pytest was executed and passing cannot be confirmed from the provided evidence. This is a verification-evidence gap rather than a code defect.",
+              "suggestion": "Attach the output of `python -m pytest -q` to the verification evidence to confirm all tests pass.",
+              "confidence": 0.9,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "f1",
+              "hunk_id": "app.py:25:2",
+              "file_path": "app.py",
+              "start_line": 10,
+              "end_line": 20,
+              "severity": "low",
+              "category": "bug",
+              "title": "No explicit docstring/typing on validator; behavior relies on Pydantic strictness for nested/float coercion edge cases",
+              "evidence": "app.py:10-20 validate_values iterates items checking isinstance(item, bool) or not isinstance(item, int). All required rejections (bool, float, str, nested list, non-list, empty, >20) are handled explicitly, and 422 is produced via ValueError in the before-validator.",
+              "explanation": "The validation logic is correct and covers every acceptance case: non-list, empty list, >20 items, bool (excluded before int check), float, str, nested lists, missing and null values all raise ValueError from a mode=\"before\" validator on a non-optional list[int] field, which FastAPI surfaces as HTTP 422 with loc [\"body\",\"values\"]. This is verified by the accompanying tests. No functional defect found; the note is only that no type hints are provided for the validator signature.",
+              "suggestion": "Optionally annotate validate_values(cls, value: object) -> list[int] for clarity; no behavioral change required.",
+              "confidence": 0.6,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 13989,
+            "output_tokens": 563,
+            "model_latency_ms": 3374.9825839995538,
+            "estimated_cost": 0.032482,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "66c82b35dc4059cde09bd27c",
+          "subtask_id": "delivery-review-final",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "66c82b35dc4059cde09bd27c"
+          },
+          "cache_key": "d74e5170128a674be18522f0ea744437bfd97884a2d02e9e0419a18c4af623e2",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 5,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 93,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 23
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 25,
+              "end_line": 32
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 93
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 899
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2945
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "interrupted",
+          "findings": [],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [
+            "Reviewer budget exhausted before a review result."
+          ],
+          "usage": null,
+          "workspace_revision": "66c82b35dc4059cde09bd27c",
+          "subtask_id": "delivery-review-final",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "66c82b35dc4059cde09bd27c"
+          },
+          "cache_key": "2d0b772d28c2a5ef34743c596554b78c20752ccc0545419b006b5d3b66fa2b90",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "start_line": 5,
+              "end_line": 32,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 93,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 23
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 25,
+              "end_line": 32
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 93
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [
+        {
+          "arguments": {
+            "dispositions": [
+              {
+                "finding_id": "f1",
+                "status": "not_adopted",
+                "reason": "Optional style suggestion only (add type hints/docstring to validate_values). Reviewer confirms no functional defect; behavior is correct and covered by tests. Adding annotations is not required by the requirement and would add no behavioral value."
+              },
+              {
+                "finding_id": "f2",
+                "status": "not_adopted",
+                "reason": "Verification-evidence gap in the review bundle, not a code defect. The acceptance command was executed locally twice: `python -m pytest -q` -> 14 passed (after final edits, 14 passed, 1 warning). No code change warranted."
+              }
+            ]
+          },
+          "result": {
+            "success": true,
+            "summary": "Recorded 2 review disposition(s).",
+            "stdout": "[{\"finding_id\": \"f1\", \"status\": \"not_adopted\", \"reason\": \"Optional style suggestion only (add type hints/docstring to validate_values). Reviewer confirms no functional defect; behavior is correct and covered by tests. Adding annotations is not required by the requirement and would add no behavioral value.\"}, {\"finding_id\": \"f2\", \"status\": \"not_adopted\", \"reason\": \"Verification-evidence gap in the review bundle, not a code defect. The acceptance command was executed locally twice: `python -m pytest -q` -> 14 passed (after final edits, 14 passed, 1 warning). No code change warranted.\"}]",
+            "stderr": "",
+            "changed_files": [],
+            "verification_hint": "",
+            "risk_level": "read_only",
+            "call_id": "01c1a427-59fe-48de-8d92-58c688d9f7be",
+            "error_code": null,
+            "artifact_refs": [],
+            "verification": null
+          }
+        }
+      ],
+      "end_events": [
+        {
+          "type": "run.interrupted",
+          "message": "Required review did not complete (interrupted); code and evidence were kept.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "7a87df1a-74db-41d8-994f-70554dc5c0b3",
+          "seq": 71,
+          "payload": {
+            "review_status": "interrupted",
+            "subtask_id": "delivery-review-final"
+          }
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-development-05/development/data/workspaces/development/runs/7a87df1a-74db-41d8-994f-70554dc5c0b3/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-development-05/manifest.json": "730631bb98525dbefce543c563fac4b6e65da367e961a395ef3b408a2e633981",
+        "eval/results/r4-20260922-development-05/development/development-input.json": "d3397ec70b224d8ac5b80418b24e17afe015bd5e4804a58655658d8fb7837aab",
+        "eval/results/r4-20260922-development-05/development/development-result.json": "c176feba6899f287b0167cbcc113ec07a4570ae5fa6ae70debf1f9e83d54ced1",
+        "eval/results/r4-20260922-development-05/development/development-events.json": "40ae50f7a5afe4aa6c5f74df145e0e7fa6a04ec640b681cd42fa4eb8940e6fac",
+        "eval/results/r4-20260922-development-05/development/development-tools.json": "403e0912170927aaaa9b26157c76b5603801636f29198f1e19e6390c64d0adb8",
+        "eval/results/r4-20260922-development-05/development/development-messages.json": "0876ec8150d068c0079d25f7ea12ff6f4007884067dd58dc148e054a22545189",
+        "eval/results/r4-20260922-development-05/development/data/workspaces/development/runs/7a87df1a-74db-41d8-994f-70554dc5c0b3/artifacts/delivery.patch": "68c90d100ae04e6055728895b30f4d06bf3a08f7ee5937b02ff964ce5a4efd4d"
+      }
+    },
+    {
+      "attempt": "r4-20260922-pair",
+      "case": "pair",
+      "reviewer_requested": "default",
+      "run_id": "357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a",
+      "session_id": "6ecd06a8-78ee-4bfd-be96-5687c56d31c5",
+      "status": "failed",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "workspace_revision": "c3d1eb28ff0785d116c5a23d",
+        "evidence_refs": [
+          "<repo>/eval/results/r4-20260922-pair/reviewer-on/data/workspaces/reviewer-on/runs/357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a/artifacts/commands/accept-357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a-0/stdout.log",
+          "<repo>/eval/results/r4-20260922-pair/reviewer-on/data/workspaces/reviewer-on/runs/357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a/artifacts/commands/accept-357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=c3d1eb28ff0785d116c5a23d"
+        ]
+      },
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "pair: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 43.53815949999989,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 299625,
+        "output_tokens": 5813,
+        "model_latency_ms": 40079.67370700044,
+        "estimated_cost": 0.645754,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "reviewer-on",
+        "display_name": "reviewer-on",
+        "path": "<repo>/eval/results/r4-20260922-pair/reviewer-on/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-23T01:27:32.851062+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "F1",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 8,
+              "end_line": 8,
+              "severity": "low",
+              "category": "bug",
+              "title": "Pydantic strict string requirement not enforced; non-string elements rejected only incidentally",
+              "evidence": "class NormalizeRequest(BaseModel): tags: list[str] = Field(..., min_length=1, max_length=20). Field is declared as list[str]; in Pydantic v2 (default lax mode) strings are required for str fields, so ints/bools are rejected, but the schema does not use StrictStr and behavior depends on Pydantic's coercion rules across versions. The requirement says 'strict strings'.",
+              "explanation": "The requirement explicitly asks for a nonempty list of at most 20 *strict* strings. Using plain `list[str]` means input validation relies on Pydantic's default (non-strict) coercion. On Pydantic v1 or in lax mode, values that are coercible (e.g., enums, some numeric types) can be silently converted, and the empty-element check happens only after coercion. The test test_normalize_non_string_element_is_422 passes only because Pydantic v2 rejects int->str for str fields by default, not because of an explicit strictness constraint. This is a fragility/mismatch with the stated contract rather than an observed failing behavior.",
+              "suggestion": "Use strict string typing when available (e.g., `tags: list[StrictStr] = Field(..., min_length=1, max_length=20)` in Pydantic v2) or validate element types explicitly in the handler, so 'contains a non-string -> 422' is enforced deterministically regardless of Pydantic version/coercion mode.",
+              "confidence": 0.55,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11839,
+            "output_tokens": 450,
+            "model_latency_ms": 3077.021207999678,
+            "estimated_cost": 0.027277999999999997,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "b17e598fa4026b8253b3aa65",
+          "subtask_id": "review-357a1f9b",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "b17e598fa4026b8253b3aa65"
+          },
+          "cache_key": "5e4ed049201e1680b4ced63fd5b45434b484ed4237ed195eca335dba8363d1f3",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 27,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 76,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 27
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 76
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 711
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2420
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "f1",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 8,
+              "end_line": 8,
+              "severity": "low",
+              "category": "bug",
+              "title": "lenient coercion avoided by StrictStr; but min_length on list applies to post-coercion length of raw list",
+              "evidence": "tags: list[StrictStr] = Field(..., min_length=1, max_length=20)",
+              "explanation": "The implementation correctly uses StrictStr to reject non-string elements (e.g. 123) with 422, and Field constraints enforce 1..20 elements and required/null handling. Behavior matches the requirement. One subtlety: whitespace-only elements are rejected at runtime by the explicit HTTPException rather than by validation, which is still a 422 as required — so this is not a defect, just noting the validation path.",
+              "suggestion": "No change required; optionally raise using a Pydantic validator for consistency, but current behavior satisfies the spec.",
+              "confidence": 0.6,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11973,
+            "output_tokens": 311,
+            "model_latency_ms": 2842.730625000513,
+            "estimated_cost": 0.026434,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "c3d1eb28ff0785d116c5a23d",
+          "subtask_id": "delivery-review",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "c3d1eb28ff0785d116c5a23d"
+          },
+          "cache_key": "713139c2a129ae9a6efcacdc261529aa99031c03b9bf65f3f33a11026162ef72",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 27,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 76,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 27
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 76
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 728
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2420
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "pydantic-list-concatenation-coercion",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 7,
+              "end_line": 8,
+              "severity": "medium",
+              "category": "bug",
+              "title": "Pydantic v1 list coercion accepts non-list JSON values for `tags`, returning 200 for inputs that should be 422",
+              "evidence": "app.py:8 `tags: list[StrictStr] = Field(..., min_length=1, max_length=20)`; test_app.py:74-76 asserts `json={\"tags\": \"not-a-list\"}` yields 422. Under Pydantic v1 (which FastAPI versions using `Field(..., min_length=...)` on a list rely on), a `list[X]` field accepts any iterable/str-ish input and coerces it to a list of characters — e.g. `\"ab\"` becomes `[\"a\", \"b\"]` — producing HTTP 200 `{\"tags\": [\"a\",\"b\"],\"count\": 2}` instead of 422. The test only passes because the single string `\"not-a-list\"` happens to contain a `\"-\"` character that is `StrictStr`-valid too, so the failure mode is not exercised by any test in the suite. StrictStr constrains element types, not the outer container type. The same coercion applies to other nested container shapes (e.g. `{\"tags\": [\"ab\"]}` is fine, but `{\"tags\": {\"a\": 1}}` becomes `[\"a\"]`, and `{\"tags\": 5}` raises a 422 only incidentally).",
+              "explanation": "The requirement says HTTP 422 must be returned when `tags` is not a list of strings. Because StrictStr is applied to items and the list field is untyped as to container strictness, inputs like `{\"tags\": \"abc\"}` are silently coerced into `[\"a\",\"b\",\"c\"]` and normalized to `[\"a\",\"b\",\"c\"]` with 200. This is a real correctness gap against the stated contract; it is only hidden because the one test for this case uses a dash-containing string whose per-character coercion still satisfies StrictStr and yields 422 only if `min_length`/`max_length` behavior of the coerced list differs — the assertion is coincidental, not causal.",
+              "suggestion": "Make the container explicitly strict, e.g. declare `tags: StrictStr` items inside a `conlist(StrictStr, min_items=1, max_items=20)` plus `class Config: extra = 'forbid'` (Pydantic v1), or use a `@field_validator(mode='before')`/`@validator` that rejects any value where `not isinstance(v, list)` (and check `all(isinstance(x, str) for x in v)`), returning a validation error so FastAPI emits 422. Add a test asserting `{\"tags\": \"abc\"}` (multiple characters, no dashes) is 422 so the coercion path is actually covered.",
+              "confidence": 0.7,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11897,
+            "output_tokens": 769,
+            "model_latency_ms": 4770.492833999924,
+            "estimated_cost": 0.029946,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "c3d1eb28ff0785d116c5a23d",
+          "subtask_id": "delivery-review",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "c3d1eb28ff0785d116c5a23d"
+          },
+          "cache_key": "844db57a962cdc27680200f3c40dbb02332e4be23b561145d8b4ce6643fedcda",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 27,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 76,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 27
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 6,
+              "end_line": 76
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 728
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2420
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [
+        {
+          "arguments": {
+            "dispositions": [
+              {
+                "finding_id": "F1",
+                "status": "fixed",
+                "reason": "Changed the request schema to `tags: list[StrictStr] = Field(..., min_length=1, max_length=20)` and imported `StrictStr` from pydantic. Element-level string validation is now enforced deterministically by the schema rather than relying on Pydantic's default lax coercion, matching the 'strict strings' contract. All 12 tests still pass, including test_normalize_non_string_element_is_422."
+              }
+            ]
+          },
+          "result": {
+            "success": true,
+            "summary": "Recorded 1 review disposition(s).",
+            "stdout": "[{\"finding_id\": \"F1\", \"status\": \"fixed\", \"reason\": \"Changed the request schema to `tags: list[StrictStr] = Field(..., min_length=1, max_length=20)` and imported `StrictStr` from pydantic. Element-level string validation is now enforced deterministically by the schema rather than relying on Pydantic's default lax coercion, matching the 'strict strings' contract. All 12 tests still pass, including test_normalize_non_string_element_is_422.\"}]",
+            "stderr": "",
+            "changed_files": [],
+            "verification_hint": "",
+            "risk_level": "read_only",
+            "call_id": "0aef50a2-b7a6-4fc9-af4c-37aca3eda7e1",
+            "error_code": null,
+            "artifact_refs": [],
+            "verification": null
+          }
+        },
+        {
+          "arguments": {
+            "dispositions": [
+              {
+                "finding_id": "f1",
+                "status": "not_adopted",
+                "reason": "The reviewer confirms behavior matches the requirement and explicitly states 'No change required' and that the finding 'is not a defect'. StrictStr deterministically rejects non-string elements with 422; Field constraints enforce required/null and the 1..20 length bounds; whitespace-only elements are rejected at runtime with HTTPException(422). All paths produce the contractually required status codes, so no change is warranted."
+              }
+            ]
+          },
+          "result": {
+            "success": true,
+            "summary": "Recorded 1 review disposition(s).",
+            "stdout": "[{\"finding_id\": \"f1\", \"status\": \"not_adopted\", \"reason\": \"The reviewer confirms behavior matches the requirement and explicitly states 'No change required' and that the finding 'is not a defect'. StrictStr deterministically rejects non-string elements with 422; Field constraints enforce required/null and the 1..20 length bounds; whitespace-only elements are rejected at runtime with HTTPException(422). All paths produce the contractually required status codes, so no change is warranted.\"}]",
+            "stderr": "",
+            "changed_files": [],
+            "verification_hint": "",
+            "risk_level": "read_only",
+            "call_id": "8724e424-3ed4-4d70-9f9d-6db522784bfc",
+            "error_code": null,
+            "artifact_refs": [],
+            "verification": null
+          }
+        }
+      ],
+      "end_events": [
+        {
+          "type": "run.failed",
+          "message": "Reached max agent steps before a final answer.",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a",
+          "seq": 109,
+          "payload": {}
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-pair/reviewer-on/data/workspaces/reviewer-on/runs/357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-pair/manifest.json": "62036702a4a884c01ef99440bf75a2d740d27115ba9913bdc5f015a3c863ed05",
+        "eval/results/r4-20260922-pair/reviewer-on/pair-input.json": "7f07f4a239acbd1ee455aadb27cd2551a7c968e70f05177a6dee6a2b6e633ee4",
+        "eval/results/r4-20260922-pair/reviewer-on/pair-result.json": "e3bec5d858a062bcaf4d5128fb835d8a136962a506259e3efef05525014f6619",
+        "eval/results/r4-20260922-pair/reviewer-on/pair-events.json": "6d1d1176d7137e4776abe75f7f39f53fe248e9b148013cfee217c41488538950",
+        "eval/results/r4-20260922-pair/reviewer-on/pair-tools.json": "c482722f5f21da06df8758a38a9babc33fd8b0ce352d273026a2819c003bb5c0",
+        "eval/results/r4-20260922-pair/reviewer-on/pair-messages.json": "33fd2f5c6ae4dbf1b91ee7241e3056ae5051f5bdbb07d34ae2841ad950018c20",
+        "eval/results/r4-20260922-pair/reviewer-on/data/workspaces/reviewer-on/runs/357a1f9b-1c9a-4c1a-9a30-0f37dd0adf3a/artifacts/delivery.patch": "a5f7d7c81e9e8f0c1938a0f001422313c8d4ad6f92b5517451b33c713d1dbd2b"
+      }
+    },
+    {
+      "attempt": "r4-20260922-pair",
+      "case": "pair",
+      "reviewer_requested": "off",
+      "run_id": "1d04cd9f-3374-49a0-b084-64e316e1afaf",
+      "session_id": "74427e4a-e4e4-467f-bab6-3ad9c0fbb82b",
+      "status": "failed",
+      "verification": null,
+      "hidden": {
+        "passed": true,
+        "exit_code": 0,
+        "could_not_run": false,
+        "stdout": "pair: trusted HTTP acceptance passed\n",
+        "stderr": ""
+      },
+      "elapsed_seconds": 38.928026334000606,
+      "usage": {
+        "profile_id": "deepseek",
+        "input_tokens": 234694,
+        "output_tokens": 5941,
+        "model_latency_ms": 36952.02146400061,
+        "estimated_cost": 0.516916,
+        "price_config_id": "deepseek",
+        "price_as_of": "2026-09-22"
+      },
+      "original_unchanged": true,
+      "readonly_unchanged": true,
+      "workspace_snapshot": {
+        "workspace_id": "reviewer-off",
+        "display_name": "reviewer-off",
+        "path": "<repo>/eval/results/r4-20260922-pair/reviewer-off/original",
+        "source_run_id": null,
+        "source_revision": "b239e4b1d112bae31302cd1d",
+        "baseline_commit": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+        "prepared_at": "2026-09-23T01:28:16.469017+00:00"
+      },
+      "reviews": [
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "f1",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 1,
+              "end_line": 4,
+              "severity": "medium",
+              "category": "compatibility",
+              "title": "Pydantic v2 field_validator usage may not match installed Pydantic version",
+              "evidence": "app.py imports `from pydantic import BaseModel, field_validator` and uses `@field_validator(...)`. Verification evidence is empty ({}); no test run output was provided to confirm the environment has Pydantic v2 installed. `field_validator` was introduced in Pydantic v2; Pydantic v1 (commonly used with older FastAPI pins) raises ImportError, which would break both the app and every test in the suite.",
+              "explanation": "The implementation depends on a Pydantic v2 API. No execution evidence (the required `python -m pytest -q` output) was supplied, so it cannot be confirmed that this import resolves and the suite passes. If the environment pins Pydantic v1, the app fails to import and all tests error, failing the acceptance command.",
+              "suggestion": "Run `python -m pytest -q` in the target environment and include its output as verification evidence. If Pydantic v1 is pinned, either use `@validator('tags')` / `conlist`-style constraints compatible with v1, or pin Pydantic v2; alternatively express the constraints with `Field(min_length=1, max_length=20)` and `List[str]` so the version-specific decorator isn't required.",
+              "confidence": 0.7,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "f2",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 12,
+              "end_line": 21,
+              "severity": "low",
+              "category": "bug",
+              "title": "Empty/over-limit validation placed in validator rather than field constraints; error path is 422 only via pydantic",
+              "evidence": "`validate_tags` manually raises ValueError for empty list and len>20. Pydantic converts this to a RequestValidationError → 422, which satisfies the requirement, but tests only assert the status code, not error semantics, and the behavior relies on pydantic's error mapping.",
+              "explanation": "The requirement is met in principle (invalid input → 422). This is not a functional defect but a maintainability/robustness note: manual raising inside a validator is less idiomatic than declarative constraints and is more coupled to pydantic's conversion behavior.",
+              "suggestion": "Consider `tags: List[str] = Field(..., min_length=1, max_length=MAX_TAGS)` for declarative bounds; keep the validator only if extra semantics are needed.",
+              "confidence": 0.7,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "f3",
+              "hunk_id": "test_app.py:1:1",
+              "file_path": "test_app.py",
+              "start_line": 75,
+              "end_line": 77,
+              "severity": "low",
+              "category": "bug",
+              "title": "Non-string element test relies on Pydantic lax coercion rather than strict strings",
+              "evidence": "`test_normalize_rejects_non_string_element` posts `{\"tags\": [\"valid\", 123]}` and expects 422. The requirement says 'strict strings' (non-string must be rejected). With Pydantic v2 default (non-strict) mode, ints are coerced to strings, so this test would only pass if Pydantic raises for int→str (v2 default does raise on int→str), but the behavior is version/config dependent and no test asserts a truly non-coercible type (e.g. an object/dict) nor does the model declare strict string typing.",
+              "explanation": "The acceptance explicitly says 'at most 20 strict strings' and 'contains a non-string' must be 422. The current model uses plain `List[str]` without `strict=True`, so the rejection of non-strings depends on pydantic coercion rules rather than an explicit strict-string contract. In lax mode some inputs could be coerced instead of rejected, which would violate the strictness requirement.",
+              "suggestion": "Make string strictness explicit, e.g. `model_config = ConfigDict(strict=True)` or `tags: List[StrictStr]`/`conlist(StrictStr, ...)`, and add a test with a non-coercible element (e.g. `True`, `{\"a\":1}`) to prove 422 for genuinely non-string tags.",
+              "confidence": 0.7,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 11928,
+            "output_tokens": 1034,
+            "model_latency_ms": 5749.563958999715,
+            "estimated_cost": 0.032128000000000004,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "f448c9c18405724afa573bae",
+          "subtask_id": "deliver-review-1",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "f448c9c18405724afa573bae"
+          },
+          "cache_key": "9b032f43814859f7e33339381eced11dbee25dafcc9c108028b1992c5243c4d2",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 43,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 82,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 43
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 82
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 1087
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2482
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        },
+        {
+          "status": "completed",
+          "findings": [
+            {
+              "finding_id": "F1",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 30,
+              "end_line": 43,
+              "severity": "low",
+              "category": "bug",
+              "title": "Empty-after-strip returns 422 via HTTPException instead of validation error, and only checks strings that pydantic already accepted",
+              "evidence": "normalize() raises HTTPException(status_code=422, detail=...) for tags that become empty after strip(). Tests test_normalize_rejects_empty_after_stripping / _empty_string only assert status_code == 422.",
+              "explanation": "Behavior satisfies the stated contract (HTTP 422 for empty-after-strip), so this is not a functional defect. However, raising HTTPException from inside the endpoint bypasses pydantic's standard 422 error shape (detail is a plain string instead of the usual validation-error list), and it occurs after the request already passed validation. This is an inconsistency in error contract, not a requirement violation.",
+              "suggestion": "Optionally move the empty-after-strip check into the field_validator (validating stripped values) so all 422 responses share a consistent error body shape.",
+              "confidence": 0.5,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "F2",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 11,
+              "end_line": 21,
+              "severity": "low",
+              "category": "bug",
+              "title": "StrictStr blocks bool/int as intended but type annotation uses List[StrictStr] with validator typed List[str]",
+              "evidence": "tags: List[StrictStr]; validate_tags(cls, value: List[str]) -> List[str]",
+              "explanation": "StrictStr correctly rejects non-string elements (123, True, dict, nested) in pydantic v2, and List[...] rejects a bare string as it is not a list (test_normalize_rejects_non_list_tags). The minor typing mismatch (validator annotated List[str] while field is List[StrictStr]) is cosmetic and does not affect runtime behavior.",
+              "suggestion": "Annotate validate_tags with List[StrictStr] for consistency.",
+              "confidence": 0.4,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "F3",
+              "hunk_id": "test_app.py:1:1",
+              "file_path": "test_app.py",
+              "start_line": 1,
+              "end_line": 92,
+              "severity": "low",
+              "category": "bug",
+              "title": "Tests only assert 422 status, not error body; missing whitespace-only-over-20 and duplicate-within-20-boundary combination edge cases",
+              "evidence": "Tests assert only response.status_code == 422 for all rejection paths; no test covers the case where a list has >20 entries but some are duplicates, nor mixed strip/lowercase dedup at the 20-element boundary.",
+              "explanation": "Coverage is otherwise broad (empty, null, missing, non-list, non-string, bool, object, over-20, max-20, dedup, ordering). No assertion on the 422 response body means the error-shape inconsistency noted in F1 is untested, and no test pins the interpretation that the 20-element limit applies before or after deduplication.",
+              "suggestion": "Add a test asserting dedup applies after the length check (list with duplicates under the cap) and optionally assert 422 body contains a 'detail' field.",
+              "confidence": 0.4,
+              "is_blocking": false
+            },
+            {
+              "finding_id": "F4",
+              "hunk_id": "app.py:1:1",
+              "file_path": "app.py",
+              "start_line": 1,
+              "end_line": 43,
+              "severity": "info",
+              "category": "bug",
+              "title": "No execution evidence provided; pytest acceptance command not run/recorded",
+              "evidence": "Verification evidence: {} and mode=commands checks=[[python, -m, pytest, -q]] with empty results.",
+              "explanation": "The requirement explicitly asks to run `python -m pytest -q` and the acceptance gate depends on it, but the supplied verification evidence is empty. The code and tests are static-reviewed only; pass/fail cannot be confirmed from the given artifacts. This does not introduce a defect in the code itself, but the 'fully validated' claim is unsupported by evidence.",
+              "suggestion": "Run the acceptance command and attach its output to complete validation.",
+              "confidence": 0.9,
+              "is_blocking": false
+            }
+          ],
+          "coverage": [
+            "app.py",
+            "test_app.py"
+          ],
+          "unchecked": [],
+          "warnings": [],
+          "usage": {
+            "profile_id": "deepseek",
+            "input_tokens": 12794,
+            "output_tokens": 983,
+            "model_latency_ms": 5901.5875009999945,
+            "estimated_cost": 0.033451999999999996,
+            "price_config_id": "deepseek",
+            "price_as_of": "2026-09-22"
+          },
+          "workspace_revision": "d278a0aca0c00092f9303928",
+          "subtask_id": "deliver-review-2",
+          "target": {
+            "kind": "run_changes",
+            "paths": [],
+            "focus": "",
+            "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+            "workspace_revision": "d278a0aca0c00092f9303928"
+          },
+          "cache_key": "ae1137295dcb2dd030b6c63c140672089523295385fe53c24e61ef2841f4deac",
+          "read_records": [
+            {
+              "path": "app.py",
+              "start_line": 1,
+              "end_line": 43,
+              "source": "seed_context"
+            },
+            {
+              "path": "test_app.py",
+              "start_line": 1,
+              "end_line": 92,
+              "source": "seed_context"
+            },
+            {
+              "path": "app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 43
+            },
+            {
+              "path": "test_app.py",
+              "source": "patch",
+              "start_line": 1,
+              "end_line": 92
+            },
+            {
+              "path": "app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 1104
+            },
+            {
+              "path": "test_app.py",
+              "source": "read_file",
+              "start_line": 1,
+              "end_line": null,
+              "output_chars": 2812
+            }
+          ],
+          "selected_paths": [
+            "app.py",
+            "test_app.py"
+          ]
+        }
+      ],
+      "dispositions": [],
+      "end_events": [
+        {
+          "type": "run.failed",
+          "message": "Model error: Model stream failed: Shared budget exhausted; request was not sent. | no running event loop",
+          "tool_call": null,
+          "tool_result": null,
+          "approval_request": null,
+          "run_id": "1d04cd9f-3374-49a0-b084-64e316e1afaf",
+          "seq": 93,
+          "payload": {
+            "error_code": "budget_exhausted"
+          }
+        }
+      ],
+      "delivery_patch": "eval/results/r4-20260922-pair/reviewer-off/data/workspaces/reviewer-off/runs/1d04cd9f-3374-49a0-b084-64e316e1afaf/artifacts/delivery.patch",
+      "evidence_sha256": {
+        "eval/results/r4-20260922-pair/manifest.json": "62036702a4a884c01ef99440bf75a2d740d27115ba9913bdc5f015a3c863ed05",
+        "eval/results/r4-20260922-pair/reviewer-off/pair-input.json": "f29c499e5e8ce3b2b736b20caa592f613ff88898f74e2d1ee691b43c0f2d1bc5",
+        "eval/results/r4-20260922-pair/reviewer-off/pair-result.json": "c8b89b7815f66b0258b9e4390fb91e1c73d703d5465daacaacbdaf8447a7d6d1",
+        "eval/results/r4-20260922-pair/reviewer-off/pair-events.json": "59705a19ccd64f21736704cd6d4273bbffba7bf608b50fb562c24267c15a7103",
+        "eval/results/r4-20260922-pair/reviewer-off/pair-tools.json": "f01a586f63ffd08093597bb70dfd54026c3819bfffdafe9eb8128ba81f8773f7",
+        "eval/results/r4-20260922-pair/reviewer-off/pair-messages.json": "bc203b9d595e53b9b783c6b4d84a8055bf8d7f293f5a30d8d5b83dbe07ca507c",
+        "eval/results/r4-20260922-pair/reviewer-off/data/workspaces/reviewer-off/runs/1d04cd9f-3374-49a0-b084-64e316e1afaf/artifacts/delivery.patch": "62eed0a61ec1af804d9ee3e9a23f95a28fd4e367024d985778e1e7270f92524b"
+      }
+    }
+  ],
+  "implementation_commit": "13bc4a0ebbf1dd68d1717cef35400db4ddca6410",
+  "final_local_checks": {
+    "combined_before_off_fix": {
+      "passed": 89,
+      "skipped_docker": 1
+    },
+    "direct_consumers_after_off_fix": {
+      "passed": 67
+    },
+    "real_model_after_off_fix": "not_run_budget"
+  },
+  "final_source_hashes": {
+    "src/review_agent/__init__.py": "be0192f26da3ffe7aeb81e3c34ad3c26b549fe6a6bf382b8472dd3164985315a",
+    "src/review_agent/api/__init__.py": "252f2f3d7feb8c8aaffd78109881ec236ace131388623c287a48b6bc0858b1a4",
+    "src/review_agent/api/app.py": "aaeb9762dd87e2af51ad3ed7aca5a35f9e28ff2321bc121f7661853ae9fbe322",
+    "src/review_agent/api/dependencies.py": "7c7f73035fadf8850b763456d86dbafc91ee95edbaff75185fe3be0109d5ba06",
+    "src/review_agent/api/routes.py": "ab2de7fc8b3168fd8392377fd39113d309e6c1cf4a1896ef200ecd0bd4f65780",
+    "src/review_agent/api/schemas.py": "2004dc0c603b0f5d3d3c3743357071dd8ead09a71eeac438e85677577c830187",
+    "src/review_agent/cli.py": "f4c081a50a9a02d324e7364d157ee82c801fbf91d2a9f74a2fd127ba135b3860",
+    "src/review_agent/clients/__init__.py": "87549c6325d5a69a5d63cb6f8d34b2acbb450046d36ad5cf6eb456769aa3306b",
+    "src/review_agent/clients/task_api.py": "c371747e73fff60c2b7b70e70db845e94c4d4795dad057790f4ccfad5e1c0de1",
+    "src/review_agent/config.py": "2a798815509469bcfc8ad82e524e152f2345a15de58f8b771381a46f0a148323",
+    "src/review_agent/db/__init__.py": "95054c34fc271175c9877e9d59ab6fd59d97439eaa95037781a2d68d32e29b33",
+    "src/review_agent/db/codec.py": "ce5b229ff78bd8067404892c231e5f0f950e32c5633930e4ea10d479f7ef49a5",
+    "src/review_agent/db/engine.py": "b74a55b4ce84c6639abe7b0237d5f8d0092c29a189159a17d1092d7a7b546c67",
+    "src/review_agent/db/models.py": "1d96e53e05286f65774eba98bfe8cfffe19ec67156725770e7c1fe95d98ded89",
+    "src/review_agent/demo.py": "1adcd270fdc42c3f432a86c7c79cdd09602d4b089b0ed0f674e2982320283188",
+    "src/review_agent/errors.py": "2108388bbbac8d99281fd556bc963a79abedb4e1c26d2528a49e36d2800b246c",
+    "src/review_agent/eval/__init__.py": "eecaaeeff0348263fce7654a4c2e992016f3da4eea63d807006868981db6c769",
+    "src/review_agent/eval/acceptance.py": "8768a7ec0aca3200f1c57290b626e069e02af1d1b7489df915fb6639fad3ccd5",
+    "src/review_agent/eval/classify.py": "c7f65053459bc2690ea00e8a1d55959fc2ee592e2b768668e346f4799a4a661d",
+    "src/review_agent/eval/models.py": "11cc0bdd86ce98bdf9929208b40cf2dae0a89702c2dcf93a197bdd31b819ae03",
+    "src/review_agent/eval/runner.py": "0ddb855afe42d598f63d0abfd70b0898f402227e9ecf6399ef93dc7ca41a59be",
+    "src/review_agent/eval/snapshot.py": "360c1e606499e9c6146a8121f615d8e840de810b7caf8bfb2da1c123ec34529e",
+    "src/review_agent/eval/summarize.py": "24b08f5e316e88162f8ee81213a96b06dd73b17d8c5dfbb928295a13a874a009",
+    "src/review_agent/graph/__init__.py": "ed275d2ee84fc8e848e37b1b5f18c5f57fd4553efc7ff065b9c1e95f380d654c",
+    "src/review_agent/graph/context_fetcher.py": "8ca15148f6a34263547ad5ae70cc1ee2bca1bf830b9fe8a0b8674d97c913ae95",
+    "src/review_agent/graph/nodes.py": "5a5cdfe3e408c92c4168ddd2d0b8b20174bd6636617fcb04176b1ef5a44547f4",
+    "src/review_agent/graph/state.py": "7434818c0b98bd40e074ce90fb6f10b9d47d58340619952e5408bd53ddb6b7d0",
+    "src/review_agent/graph/workflow.py": "5a8d56291ee3c09b9af5a1e348055f1b870164f22beccf7dcc382a3ad3cea854",
+    "src/review_agent/harness/__init__.py": "1254d99ca6723123638dab992093040394f9de57400beae4ebb7d26d152dc788",
+    "src/review_agent/harness/acceptance.py": "2ff469f040690b17478de8a5d0ef3415508138bc045ab8cbadbc05aec17f1b66",
+    "src/review_agent/harness/approval.py": "e14a58eb85b2ed5bcb601fdcca5842fbc9989a1db9e547788e4547d308604948",
+    "src/review_agent/harness/budget.py": "ab89d87d074c71ebcd9636b0c890c4297a1d260093278add894aaaf2d1388995",
+    "src/review_agent/harness/coding_graph.py": "57111aba066ed6240ac505c390f0a0585a76da269380126f3964a99798caf1ad",
+    "src/review_agent/harness/context.py": "a7eaba27fd5f4ec54e40f7086134f58bd1f052f57278dc8c0541708e1dfb0036",
+    "src/review_agent/harness/mcp/__init__.py": "9dd5a7573b4391693d2a9d4e0645debb55e708889ae9898ca13fcab9fc9679e3",
+    "src/review_agent/harness/mcp/config.py": "5f4a5553e04f2c2674d5ced3d4eb052dec72fb7e1980619c292bc4a24a6f4563",
+    "src/review_agent/harness/mcp/normalize.py": "a9563c50b3355de431cfde760a4d2ae6358f6c373c0a1a97c9d0dbd74aa073e0",
+    "src/review_agent/harness/mcp/schema.py": "59d19cb11626e8a0db259bb0513363a18ff2017807a08d57d2d9e5ddcb956356",
+    "src/review_agent/harness/mcp/session.py": "8a5f406f63be07a3e285d7683c3bfdcd75b492bfc4d1cedc129f101d011a42b7",
+    "src/review_agent/harness/memory/__init__.py": "042465f0758f1ff43f18af797ecee761bf891f2e9bdd4bf3195f1dcc80a874f5",
+    "src/review_agent/harness/memory/extractor.py": "a2b9b807a55da73360325ae5b820054e08688cc250de2a4d1ba021dc5ecab820",
+    "src/review_agent/harness/memory/loader.py": "08ff8e5b59febd540a91c01acfd14382cd5ad418f49ca41c3b83d2378a516928",
+    "src/review_agent/harness/memory/manager.py": "1c25ab9a3b6b92059a396764fbe17e8f18053ee16ddb60fd68dcd3016e943b70",
+    "src/review_agent/harness/memory/models.py": "b4989d5cbf44bd82c3836889fa0735c5fd0af3cc24755f900b648cd39da6d9fc",
+    "src/review_agent/harness/memory/organizer.py": "8dc9e4b5d9003448e40795587dfa37e9a00e42277e51bba17cdcb00750c2185a",
+    "src/review_agent/harness/memory/store.py": "b57e078ae10aa9a97f0a9e43025a9cc32eb7da5d2b45005e676ac7cc316ac605",
+    "src/review_agent/harness/model_client.py": "62c2745fca72764daf5ad21c1635d5e9280b5b5ddf307b229ae22a9994448b40",
+    "src/review_agent/harness/models.py": "9e96527df8984d4b5b7b9afe142d0c1b56cb39c4c4ba92889e466ae5cc2b68b9",
+    "src/review_agent/harness/review_state.py": "4a57e0a9d86e447fe161dd934759d8edbffeaa36b1bc0adcedc09aeb1ccf4803",
+    "src/review_agent/harness/review_target.py": "a9fffd7c40f214cd0805b7c6001a2571050b4fb3454d336ca87b815470ea7e0f",
+    "src/review_agent/harness/reviewer.py": "684a567a0778888c8cddfd6e99cfa5f09f85b18996bee84ba399989561919ad3",
+    "src/review_agent/harness/runtime.py": "484052c3692e3104d623b9eff39326e08baa1827b92320cefe64dad4e1f87165",
+    "src/review_agent/harness/skills/__init__.py": "9215ab5406dbf0223662e1ee549679b0fe0f86176356bf86a91915a11e7065e1",
+    "src/review_agent/harness/skills/loader.py": "9b512bc87cb2de79ebc3be1f7c5b4e58f37f45649e8c9dffdd2f73711adee43d",
+    "src/review_agent/harness/skills/models.py": "63373214477c4f94cf34c236250f4a060b7e480320daff904238fc200add0188",
+    "src/review_agent/harness/skills/parse.py": "b86e71f08a0027df5003c9577dcee1f734120004d933eee51ffeb5c01a26dea5",
+    "src/review_agent/harness/task_store.py": "05853ebdee1780ed887f0220fd43add599e890eadb48cfbc1eba18f336cc0fd7",
+    "src/review_agent/harness/tool_params.py": "8614705d0c4d70e64446a17a28a126512e8da06a49fbcc66b6e67e00211424b2",
+    "src/review_agent/harness/tools.py": "618b74969d2e20e70bdbc2668d84ebadcb76fe4ffe584ca758c9b944b11f3c2c",
+    "src/review_agent/harness/workspace_revision.py": "5580f1808517633bf8ed891d9db6d17f87fcb276a05d0cf10d300d86394088a7",
+    "src/review_agent/mcp_servers/__init__.py": "f22ad4ab11f813074cf328bb0feec9f250d7ff656a6241c13ba564fb62e3485d",
+    "src/review_agent/mcp_servers/api_contract/__init__.py": "4201b32a569992294edf901d3b81a6a51e025db3c0194ea793165c0caf97d847",
+    "src/review_agent/mcp_servers/api_contract/__main__.py": "000653362a72430977f712269f24fcf4a3b1f79dfd1083337df1c224ce62fc7b",
+    "src/review_agent/mcp_servers/api_contract/catalog.py": "c3047858c07c3243e6a6cf1eb7226104764a97db5f1228a2c0988df936344ea2",
+    "src/review_agent/mcp_servers/api_contract/logic.py": "cffc6696136dbcec7a9a518088bcb3f29ded492b34931ea6657d516d5d0d1f8c",
+    "src/review_agent/mcp_servers/api_contract/server.py": "26625a325b4d3507c50044596e2ce6f724f796ea266f3f184c49888f54d87e6e",
+    "src/review_agent/memory/__init__.py": "7bb18095621b8f169a5a7bfb24dbf2162f3dfdb636e5eaed9d03518ca3b9a48e",
+    "src/review_agent/memory/conversation.py": "d9a0eb4c6aaf3cc14be8356e8658f664514b381d9b70db17a8535efddebbb9b7",
+    "src/review_agent/memory/router.py": "0678d76f30b4c4e68ed647411256d37b3ff1297170f673ed8d6a3298821a83ce",
+    "src/review_agent/models/__init__.py": "0ab40c88beb872173b9ad3f92b6e97f8cc4f75611eded1b3a78427902692f2fb",
+    "src/review_agent/models/context.py": "468a6d58c0a04ceacd625a436607611a153473294ac32981e2594d728f049ac1",
+    "src/review_agent/models/diff.py": "029a1eae5c62f83bac591aef8978c8ae0893f25829316cdca158cc56dfe99dc2",
+    "src/review_agent/models/finding.py": "65098008aafe3742e3b701e38d0af45eaa27a197c21421c28d108a51c59cd8c0",
+    "src/review_agent/models/pr.py": "dd2102cccb967f1edbd8a74f8ff73758ab157b93df235d61e3e7535bf6da1ecd",
+    "src/review_agent/models/report.py": "6296ae68b06af4d9f3abea25e78b5c3d8814a2ddb11e264111899e1d5f31ea10",
+    "src/review_agent/models/session.py": "44af89515b43fabb3c04f3c4ff3367cce7fd716232f1a10026776af0410186cd",
+    "src/review_agent/observability.py": "1dab10b8391186c2dad0c9ec72e46734155c14f704f77d0aa731f89f6a6ff4ec",
+    "src/review_agent/reviewers/__init__.py": "1d6ef99f117261013a35584d035ce4be29ef02e67654aa6fd0250f892a9e1f94",
+    "src/review_agent/reviewers/cross_file_policy.py": "11c82410636219e2dc83f667c7c0703da5855aed390706b17fd32f437f94ff12",
+    "src/review_agent/reviewers/cross_file_reviewer.py": "1a60652f0cea950db0921c017a39f57ed89da9fb190159d90d4cec9e12691581",
+    "src/review_agent/reviewers/finding_parser.py": "06be7c4ef62f1bb514459012a7af30252da4e0111f2e03a293d1eee03f70615f",
+    "src/review_agent/reviewers/finding_ranker.py": "6db57adf45fef9d0558dd5b285dc79fea2db72f0414f98b7041f993c8dc147d8",
+    "src/review_agent/reviewers/hunk_reviewer.py": "74e9c0246fddc89892aea0c205dac5da07713e29ec0f0cb6448f856696975573",
+    "src/review_agent/reviewers/llm_reviewer.py": "2ff281d9e898973dce89eafb8558f1a559d787f758ff3f6e2dcc6a93e48eecfa",
+    "src/review_agent/reviewers/outcome.py": "51312cf7efaebe412714eda6623439b42f20034df1714ae17ff31aee3ee95df3",
+    "src/review_agent/reviewers/prompts.py": "429a760a723ec392abf5326051d18f766140eec645f8f55a425f19f5794ef451",
+    "src/review_agent/services/__init__.py": "74469d0f4d164bd38612c933de6afa5175e86164d6d6c7a4991698fb7cc6a558",
+    "src/review_agent/services/command_runner.py": "16809e5803913d48dd168334aedb8db7de8cb9c195cc4919b88b65afa752d208",
+    "src/review_agent/services/dispatch.py": "52d42d2186437df33ad01ba9d847fab7cb64ae6086e673f1ab9051d59003c6f1",
+    "src/review_agent/services/executor.py": "22f8957ac4d7a8ad672a32d9276f164dd6bd258b23699a8add4b39aa6fe813f1",
+    "src/review_agent/services/factory.py": "1f91e8ab4cab50c0455069c24457bf3587cbfe0ce61b1c160378436315c05f51",
+    "src/review_agent/services/graph_checkpointer.py": "93aae9bc94024c5dc682e4d00cb7019e25cb1674fea6a73d97a82547e9d334d6",
+    "src/review_agent/services/lease.py": "2134a7073313b7ef586828eac5e1d01bf8efa4c27a87567a7c342ff662d31fe9",
+    "src/review_agent/services/orphans.py": "2cbdc0575909b00ec99403b45488dc8ccf1f05ee4a765c5c54b19ca374986228",
+    "src/review_agent/services/patch_apply.py": "8db5475dbc4592b06ceafd176babc93794a699d80b62ae714aa3c449920dd0de",
+    "src/review_agent/services/recovery.py": "3a2fdfffd13bf5e8049ca6ffd7e4964d1881e495667ff9ccc2e1271b75bf5586",
+    "src/review_agent/services/repo_cache.py": "303b4082c2fd8bd2da9c65adb3f611261f0263696e24079d68f8c433dc7d7717",
+    "src/review_agent/services/review_context.py": "9ad979a267910c914cc034b0294f1170faeaf040981473ebf3ff066c962c14bc",
+    "src/review_agent/services/review_service.py": "c634b1a0b54a39f94abe7c979dc7b3644a7e23f86f371d48764e5380c6448ca6",
+    "src/review_agent/services/review_store.py": "a91dcf37eb24b7a7a41993886272ccaa09e92d4abc4fa07f604caa273d65a62b",
+    "src/review_agent/services/run_attempt.py": "d3ed4cffb275325319fee78dfefdc4cd024b980d46e1034ab624024bf6c2fbec",
+    "src/review_agent/services/run_lock.py": "6e55b9d9ae67e393ce4e00920c42bc455a3802b8ca77c1cbbf5d1b9b6d73c52f",
+    "src/review_agent/services/session_service.py": "847586d8821abf1d0d4fe6ddc31e19727003c37790aca671ad30ec0d6517d1a2",
+    "src/review_agent/services/task_service.py": "d21f4012c40b59e2e8b232fe571a5dff123fa04591b9c795fa503b501a4d1fa7",
+    "src/review_agent/services/task_store_postgres.py": "a560e7e035213c5b2809c1ba0b33ab0883ca8884ea8793b9800c042224cee99d",
+    "src/review_agent/services/workspace_manager.py": "9eeac0bd8df959256e6b853c4403bdbf36a126e70ce240d0b6deb45a792bb031",
+    "src/review_agent/tools/__init__.py": "382fe77265cc7e5372f897f980b01112d783e7e80d555e08cb22919691f700ed",
+    "src/review_agent/tools/diff_tools.py": "7f628178cb7a06595d5083a9582438aae2b808f41daf3a132f3ba9e695d53bb4",
+    "src/review_agent/tools/github_tools.py": "8402d2f05616724be622042ecb82247c886721fdfe3a4b3ee20f1418f0a44619",
+    "src/review_agent/tools/python_analysis_tools.py": "6e1bd2f1aca35cae987a9256d9fb7477f8502bcd31997668683f8225897e0b00",
+    "src/review_agent/tools/repo_tools.py": "0b3cb3058af3eef65edb5846df5e69290f04f9dd5e1de8591889dbf965bb6ef1",
+    "src/review_agent/tools/report_tools.py": "42781f58e3f72e36324ea688ff1f4b66e1e74a39324ce22a710d5dcf745e482c",
+    "src/review_agent/tools/verification_tools.py": "fd82871534602de97c21c6039fcaeb7a4e0a826efe05ca02162440a6c13c86e0",
+    "src/review_agent/worker/__init__.py": "fa273df542d3632bd5e9f76639a06caccd3c22dfd614e2d4729b4ea14e1cef87",
+    "src/review_agent/worker/celery_app.py": "f939252b6638d18efee47f3c07e3adeb0c3df2f67fe7cea8215284bcaf99bbec",
+    "src/review_agent/worker/locks.py": "72c46169847d11ce29c29effb0296009a6cc8964d808cfea8e99b818f7f3a4e1",
+    "src/review_agent/worker/tasks.py": "f3e5b224e08cf534f12b9473965ac65224e6332b2fa555211176e4a248000138"
+  }
+}

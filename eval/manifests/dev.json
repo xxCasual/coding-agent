@@ -1,0 +1,159 @@
+{
+  "tasks": [
+    {
+      "task_id": "dev-fs-fix-quantity",
+      "set": "dev",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "POST /items must return quantity as a JSON integer matching the request body.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-fs-fix-quantity/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-fs-fix-duplicate-409",
+      "set": "dev",
+      "category": "fix",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Creating two items with the same name must return HTTP 409 with detail 'item already exists'. Distinct names must still succeed.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-fs-fix-duplicate-409/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-llm-fix-timeout-usage",
+      "set": "dev",
+      "category": "fix",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Timeouts must surface as a timeout error whose usage is unknown (null), never invented zeros.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-llm-fix-timeout-usage/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-pb-fix-owner-scope",
+      "set": "dev",
+      "category": "fix",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Notes must only be readable by the owning user_id. Another user asking for the same id must get no note.",
+      "allowed_paths": [
+        "dal.py",
+        "service.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-pb-fix-owner-scope/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-fs-feat-get-item",
+      "set": "dev",
+      "category": "feature",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Add GET /items/{id} that returns a previously created item, or 404 when missing.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-fs-feat-get-item/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-llm-feat-auth-error",
+      "set": "dev",
+      "category": "feature",
+      "sample": "llm-adapter",
+      "tree_hash": "3412e42cde67ce78e7b2705f",
+      "requirement": "Map provider auth failures to a dedicated error code 'auth'. Do not classify them as other.",
+      "allowed_paths": [
+        "adapter.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-llm-feat-auth-error/check.py"
+      },
+      "reviewer_hard": false
+    },
+    {
+      "task_id": "dev-pb-feat-patch-note",
+      "set": "dev",
+      "category": "feature",
+      "sample": "python-backend",
+      "tree_hash": "e14c81b6da20b9dd8b85ade1",
+      "requirement": "Add PATCH /notes/{id} so the owner can update title/body and the revision number increases. Other users must get 404.",
+      "allowed_paths": [
+        "api.py",
+        "service.py",
+        "dal.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-pb-feat-patch-note/check.py"
+      },
+      "reviewer_hard": true
+    },
+    {
+      "task_id": "dev-fs-contract-post-v1",
+      "set": "dev",
+      "category": "contract",
+      "sample": "fastapi-service",
+      "tree_hash": "50acd3c7371c675c725e1d3a",
+      "requirement": "Implement POST /items against contracts/items-v1.json: integer quantity, 409 on duplicate name, 422 on invalid bodies. Read the contract file in the workspace; do not assume MCP is present.",
+      "allowed_paths": [
+        "app.py"
+      ],
+      "budget": {
+        "max_steps": 24,
+        "max_verification_repairs": 2
+      },
+      "hidden_acceptance": {
+        "script": "eval/hidden/dev-fs-contract-post-v1/check.py"
+      },
+      "reviewer_hard": true
+    }
+  ]
+}

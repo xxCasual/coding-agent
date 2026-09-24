@@ -1,0 +1,8 @@
+# Dockerfile.task — minimal registered task image for M04 Docker backend
+# Build: docker build -f Dockerfile.task -t review-agent-task:dev .
+# Default executor backend is docker. Host-dev: REVIEW_AGENT_EXECUTOR_BACKEND=host
+# Optional image: REVIEW_AGENT_TASK_IMAGE=review-agent-task:dev
+FROM python:3.12-slim
+WORKDIR /workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+# No model credentials, no Docker socket. Dependencies are prebuilt here; Executor does not pip install per command.

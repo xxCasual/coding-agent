@@ -1,0 +1,633 @@
+{
+  "date": "2026-09-24",
+  "environment": {
+    "database": "PostgreSQL 16, dedicated disposable databases",
+    "broker": "Redis 7, dedicated local container",
+    "worker": "Celery solo, separate process",
+    "api": "Uvicorn HTTP + SSE",
+    "executor": "host; conda review-agent Python 3.11.15",
+    "model": "deepseek-flash, native tools, thinking disabled, SDK retries=0, shared ledger cap CNY 10",
+    "transport_model": "ScriptedModel (no paid requests)"
+  },
+  "tests": {
+    "runtime_service_recovery_reviewer": 75,
+    "postgres": 10,
+    "celery_redis": 6
+  },
+  "transport": {
+    "approval": {
+      "session_id": "da341ee4-b0bc-4e1c-967d-03cd89a4734e",
+      "run_id": "1e943b1f-9cf5-40e5-a453-945df92ba1ad",
+      "status": "succeeded",
+      "approval_after_worker_restart": true,
+      "sse_count": 10,
+      "sse_resume_count": 4,
+      "artifact_count": 1,
+      "original_unchanged": true
+    },
+    "cancel": {
+      "run_id": "f4c99a55-d37e-403b-830e-a2cf74ac3e82",
+      "status": "cancelled",
+      "command_started": true,
+      "finished_marker_absent": true
+    },
+    "resume": {
+      "run_id": "471494b5-62f4-41dc-88f7-6599a2f685ec",
+      "status": "succeeded",
+      "worker_restarted": true,
+      "task_mode": "plan",
+      "verification": "not_applicable"
+    },
+    "cli": {
+      "exit_code": 0,
+      "submitted_plan": true,
+      "succeeded_visible": true
+    },
+    "web": {
+      "approval_clicked": true,
+      "active_mode_disabled": true,
+      "completed_plan_restored": true,
+      "real_conversation_rendered": true
+    }
+  },
+  "real": {
+    "development": {
+      "run_id": "963c6deb-54aa-4b77-968b-6f85735d6d95",
+      "session_id": "31aa6d4e-aaf1-46f7-9cd9-2d6659c0fa03",
+      "status": "succeeded",
+      "task_mode": "develop",
+      "requirement": "Add GET /greet to this existing FastAPI app. With no name parameter return {\"message\":\"Hello, World!\"}. With name, trim leading/trailing whitespace, then return {\"message\":\"Hello, NAME!\"} preserving Unicode. Reject blank/whitespace-only names and trimmed names longer than 80 characters with HTTP 422. Preserve /health. Add concise pytest coverage. Use the existing environment, no dependency installation. Run tests with python -m pytest -q from the workspace root. Return final after implementation and tests; the runtime will perform the configured acceptance and delivery review.",
+      "verification": {
+        "status": "passed",
+        "command": "/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q",
+        "exit_code": 0,
+        "evidence_refs": [
+          "<repo>/.git/fullstack-before/data/workspaces/greeting-api/runs/963c6deb-54aa-4b77-968b-6f85735d6d95/artifacts/commands/accept-963c6deb-54aa-4b77-968b-6f85735d6d95-0/stdout.log",
+          "<repo>/.git/fullstack-before/data/workspaces/greeting-api/runs/963c6deb-54aa-4b77-968b-6f85735d6d95/artifacts/commands/accept-963c6deb-54aa-4b77-968b-6f85735d6d95-0/stderr.log",
+          "check:/opt/homebrew/Caskroom/miniforge/base/envs/review-agent/bin/python -m pytest -q:exit=0:rev=06d28091e949b8454c3d06b2"
+        ],
+        "workspace_revision": "06d28091e949b8454c3d06b2"
+      },
+      "review": {
+        "mode": "default",
+        "usage": {
+          "profile_id": "deepseek",
+          "price_as_of": "2026-09-24",
+          "input_tokens": 5021,
+          "output_tokens": 6,
+          "estimated_cost": 0.01009,
+          "price_config_id": "deepseek",
+          "model_latency_ms": 1196.2153330005094
+        },
+        "status": "completed",
+        "target": {
+          "kind": "run_changes",
+          "focus": "",
+          "paths": [],
+          "baseline": "c47478c4e2fb5214a94a035b4f4a25a7437f67cb",
+          "workspace_revision": "06d28091e949b8454c3d06b2"
+        },
+        "enabled": true,
+        "coverage": [
+          "app.py",
+          "test_app.py"
+        ],
+        "findings": [],
+        "warnings": [],
+        "cache_key": "e3fd8e0c0c109f2b83d078c5b827ac84048b78cbaea549ec99eecba690c5b723",
+        "unchecked": [],
+        "subtask_id": "review-963c6deb",
+        "dispositions": [],
+        "read_records": [
+          {
+            "path": "app.py",
+            "source": "seed_context",
+            "end_line": 23,
+            "start_line": 1
+          },
+          {
+            "path": "app.py",
+            "source": "seed_context",
+            "end_line": 23,
+            "start_line": 1
+          },
+          {
+            "path": "test_app.py",
+            "source": "seed_context",
+            "end_line": 48,
+            "start_line": 1
+          },
+          {
+            "path": "app.py",
+            "source": "patch",
+            "end_line": 4,
+            "start_line": 1
+          },
+          {
+            "path": "app.py",
+            "source": "patch",
+            "end_line": 23,
+            "start_line": 6
+          },
+          {
+            "path": "test_app.py",
+            "source": "patch",
+            "end_line": 48,
+            "start_line": 6
+          }
+        ],
+        "selected_paths": [
+          "app.py",
+          "test_app.py"
+        ],
+        "workspace_revision": "06d28091e949b8454c3d06b2"
+      },
+      "workspace_revision": "06d28091e949b8454c3d06b2",
+      "budget": {
+        "max_steps": 24,
+        "step_count": 8,
+        "reviewer_max_steps": 6,
+        "reviewer_step_count": 1
+      },
+      "usage": {
+        "profile_id": "deepseek",
+        "price_as_of": "2026-09-24",
+        "input_tokens": 51334,
+        "output_tokens": 1343,
+        "estimated_cost": 0.113412,
+        "price_config_id": "deepseek",
+        "model_latency_ms": 10647.493293003208
+      }
+    },
+    "planning": {
+      "run_id": "0646b041-e8c0-460f-9cc9-838c501e3e84",
+      "session_id": "31aa6d4e-aaf1-46f7-9cd9-2d6659c0fa03",
+      "status": "succeeded",
+      "task_mode": "plan",
+      "requirement": "Plan only: how would we add an optional language parameter supporting English and Chinese greetings while preserving current behavior? Identify files, steps, proposed tests, and uncertainties. Do not implement or execute commands.",
+      "verification": {
+        "status": "not_applicable",
+        "command": null,
+        "exit_code": null,
+        "evidence_refs": [],
+        "workspace_revision": "06d28091e949b8454c3d06b2"
+      },
+      "review": {
+        "mode": "off",
+        "usage": null,
+        "status": null,
+        "enabled": false,
+        "coverage": [],
+        "findings": [],
+        "warnings": [],
+        "unchecked": [],
+        "subtask_id": null,
+        "dispositions": [],
+        "workspace_revision": null
+      },
+      "workspace_revision": "06d28091e949b8454c3d06b2",
+      "budget": {
+        "max_steps": 24,
+        "step_count": 3,
+        "reviewer_max_steps": 6
+      },
+      "usage": {
+        "profile_id": "deepseek",
+        "price_as_of": "2026-09-24",
+        "input_tokens": 17540,
+        "output_tokens": 1518,
+        "estimated_cost": 0.047224,
+        "price_config_id": "deepseek",
+        "model_latency_ms": 8511.547957001312
+      }
+    },
+    "hidden_assertions": 9,
+    "artifact_hash_verified": true,
+    "original_unchanged": true,
+    "new_requests": 19,
+    "increment_cny": "0.278620",
+    "cumulative_cny": "5.685700",
+    "remaining_cny": "4.314300",
+    "develop_events": [
+      {
+        "seq": 1,
+        "type": "run.created"
+      },
+      {
+        "seq": 2,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 3,
+        "type": "model.done"
+      },
+      {
+        "seq": 4,
+        "type": "tool.started"
+      },
+      {
+        "seq": 5,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 6,
+        "type": "tool.started"
+      },
+      {
+        "seq": 7,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 8,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 9,
+        "type": "model.done"
+      },
+      {
+        "seq": 10,
+        "type": "tool.started"
+      },
+      {
+        "seq": 11,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 12,
+        "type": "tool.started"
+      },
+      {
+        "seq": 13,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 14,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 15,
+        "type": "model.done"
+      },
+      {
+        "seq": 16,
+        "type": "tool.started"
+      },
+      {
+        "seq": 17,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 18,
+        "type": "tool.started"
+      },
+      {
+        "seq": 19,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 20,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 21,
+        "type": "model.done"
+      },
+      {
+        "seq": 22,
+        "type": "tool.started"
+      },
+      {
+        "seq": 23,
+        "type": "approval.requested"
+      },
+      {
+        "seq": 24,
+        "type": "tool.started"
+      },
+      {
+        "seq": 25,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 26,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 27,
+        "type": "model.done"
+      },
+      {
+        "seq": 28,
+        "type": "tool.started"
+      },
+      {
+        "seq": 29,
+        "type": "approval.requested"
+      },
+      {
+        "seq": 30,
+        "type": "tool.started"
+      },
+      {
+        "seq": 31,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 32,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 33,
+        "type": "model.done"
+      },
+      {
+        "seq": 34,
+        "type": "tool.started"
+      },
+      {
+        "seq": 35,
+        "type": "approval.requested"
+      },
+      {
+        "seq": 36,
+        "type": "tool.started"
+      },
+      {
+        "seq": 37,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 38,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 39,
+        "type": "model.done"
+      },
+      {
+        "seq": 40,
+        "type": "verification.completed"
+      },
+      {
+        "seq": 41,
+        "type": "run.interrupted"
+      },
+      {
+        "seq": 42,
+        "type": "verification.completed"
+      },
+      {
+        "seq": 43,
+        "type": "delegate.started"
+      },
+      {
+        "seq": 44,
+        "type": "delegate.completed"
+      },
+      {
+        "seq": 45,
+        "type": "run.succeeded"
+      }
+    ],
+    "plan_events": [
+      {
+        "seq": 1,
+        "type": "run.created"
+      },
+      {
+        "seq": 2,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 3,
+        "type": "model.done"
+      },
+      {
+        "seq": 4,
+        "type": "tool.started"
+      },
+      {
+        "seq": 5,
+        "type": "tool.failed"
+      },
+      {
+        "seq": 6,
+        "type": "tool.started"
+      },
+      {
+        "seq": 7,
+        "type": "tool.failed"
+      },
+      {
+        "seq": 8,
+        "type": "tool.started"
+      },
+      {
+        "seq": 9,
+        "type": "tool.failed"
+      },
+      {
+        "seq": 10,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 11,
+        "type": "model.done"
+      },
+      {
+        "seq": 12,
+        "type": "tool.started"
+      },
+      {
+        "seq": 13,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 14,
+        "type": "tool.started"
+      },
+      {
+        "seq": 15,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 16,
+        "type": "tool.started"
+      },
+      {
+        "seq": 17,
+        "type": "tool.finished"
+      },
+      {
+        "seq": 18,
+        "type": "model.text_delta"
+      },
+      {
+        "seq": 19,
+        "type": "model.done"
+      },
+      {
+        "seq": 20,
+        "type": "verification.completed"
+      },
+      {
+        "seq": 21,
+        "type": "run.succeeded"
+      }
+    ],
+    "planning_tools": [
+      "list_files",
+      "read_file",
+      "read_file",
+      "read_file",
+      "read_file",
+      "list_files"
+    ],
+    "delivery_patch_sha256": "cf63f354adedd817041c7a16b176a08ce53f88f6db62a89505ce249dad9c9c6c"
+  },
+  "retained_failures": [
+    {
+      "run_id": "b20f808a-f14b-4ae8-a900-8c5a70af07a6",
+      "failure": "succeeded but artifact list empty before delivery fix"
+    },
+    {
+      "run_id": "063e3642-fa42-4601-98ff-49a59a927ea2",
+      "failure": "confirmed command blocked as unknown side effect before lifecycle fix"
+    },
+    {
+      "run_id": "e020a1a7-1216-4db2-ab0a-11ea309794b2",
+      "failure": "batched pending command blocked recovery; explicitly ended; initial launcher PATH also did not prioritize conda"
+    },
+    {
+      "run_id": "963c6deb-54aa-4b77-968b-6f85735d6d95",
+      "failure": "automatic reviewer call_id exceeded VARCHAR(64); worker exception left running before fixes",
+      "recovery": "confirmed old worker stopped, explicitly cleared old lease and marked interrupted, then resumed existing PostgreSQL checkpoint through API"
+    }
+  ],
+  "limitations": [
+    "single machine, host executor and Celery solo; not Compose image/prefork/sandbox certification",
+    "real development resumed after fixes, not an uninterrupted first-try success",
+    "planning initially attempted stale absolute paths; access blocked, then read relative files; no writes or commands",
+    "budget is peak-price estimate including CNY 1.50 historical unknown reservations, not provider billing"
+  ],
+  "source_sha256": {
+    "src/review_agent/__init__.py": "be0192f26da3ffe7aeb81e3c34ad3c26b549fe6a6bf382b8472dd3164985315a",
+    "src/review_agent/api/__init__.py": "252f2f3d7feb8c8aaffd78109881ec236ace131388623c287a48b6bc0858b1a4",
+    "src/review_agent/api/app.py": "aaeb9762dd87e2af51ad3ed7aca5a35f9e28ff2321bc121f7661853ae9fbe322",
+    "src/review_agent/api/dependencies.py": "7c7f73035fadf8850b763456d86dbafc91ee95edbaff75185fe3be0109d5ba06",
+    "src/review_agent/api/routes.py": "ab2de7fc8b3168fd8392377fd39113d309e6c1cf4a1896ef200ecd0bd4f65780",
+    "src/review_agent/api/schemas.py": "2004dc0c603b0f5d3d3c3743357071dd8ead09a71eeac438e85677577c830187",
+    "src/review_agent/cli.py": "f4c081a50a9a02d324e7364d157ee82c801fbf91d2a9f74a2fd127ba135b3860",
+    "src/review_agent/clients/__init__.py": "87549c6325d5a69a5d63cb6f8d34b2acbb450046d36ad5cf6eb456769aa3306b",
+    "src/review_agent/clients/task_api.py": "c371747e73fff60c2b7b70e70db845e94c4d4795dad057790f4ccfad5e1c0de1",
+    "src/review_agent/config.py": "2a798815509469bcfc8ad82e524e152f2345a15de58f8b771381a46f0a148323",
+    "src/review_agent/db/__init__.py": "95054c34fc271175c9877e9d59ab6fd59d97439eaa95037781a2d68d32e29b33",
+    "src/review_agent/db/codec.py": "ce5b229ff78bd8067404892c231e5f0f950e32c5633930e4ea10d479f7ef49a5",
+    "src/review_agent/db/engine.py": "b74a55b4ce84c6639abe7b0237d5f8d0092c29a189159a17d1092d7a7b546c67",
+    "src/review_agent/db/models.py": "1d96e53e05286f65774eba98bfe8cfffe19ec67156725770e7c1fe95d98ded89",
+    "src/review_agent/demo.py": "1adcd270fdc42c3f432a86c7c79cdd09602d4b089b0ed0f674e2982320283188",
+    "src/review_agent/errors.py": "2108388bbbac8d99281fd556bc963a79abedb4e1c26d2528a49e36d2800b246c",
+    "src/review_agent/eval/__init__.py": "eecaaeeff0348263fce7654a4c2e992016f3da4eea63d807006868981db6c769",
+    "src/review_agent/eval/acceptance.py": "8768a7ec0aca3200f1c57290b626e069e02af1d1b7489df915fb6639fad3ccd5",
+    "src/review_agent/eval/classify.py": "c7f65053459bc2690ea00e8a1d55959fc2ee592e2b768668e346f4799a4a661d",
+    "src/review_agent/eval/models.py": "11cc0bdd86ce98bdf9929208b40cf2dae0a89702c2dcf93a197bdd31b819ae03",
+    "src/review_agent/eval/runner.py": "0ddb855afe42d598f63d0abfd70b0898f402227e9ecf6399ef93dc7ca41a59be",
+    "src/review_agent/eval/snapshot.py": "360c1e606499e9c6146a8121f615d8e840de810b7caf8bfb2da1c123ec34529e",
+    "src/review_agent/eval/summarize.py": "24b08f5e316e88162f8ee81213a96b06dd73b17d8c5dfbb928295a13a874a009",
+    "src/review_agent/graph/__init__.py": "ed275d2ee84fc8e848e37b1b5f18c5f57fd4553efc7ff065b9c1e95f380d654c",
+    "src/review_agent/graph/context_fetcher.py": "8ca15148f6a34263547ad5ae70cc1ee2bca1bf830b9fe8a0b8674d97c913ae95",
+    "src/review_agent/graph/nodes.py": "5a5cdfe3e408c92c4168ddd2d0b8b20174bd6636617fcb04176b1ef5a44547f4",
+    "src/review_agent/graph/state.py": "7434818c0b98bd40e074ce90fb6f10b9d47d58340619952e5408bd53ddb6b7d0",
+    "src/review_agent/graph/workflow.py": "5a8d56291ee3c09b9af5a1e348055f1b870164f22beccf7dcc382a3ad3cea854",
+    "src/review_agent/harness/__init__.py": "1254d99ca6723123638dab992093040394f9de57400beae4ebb7d26d152dc788",
+    "src/review_agent/harness/acceptance.py": "2ff469f040690b17478de8a5d0ef3415508138bc045ab8cbadbc05aec17f1b66",
+    "src/review_agent/harness/approval.py": "e14a58eb85b2ed5bcb601fdcca5842fbc9989a1db9e547788e4547d308604948",
+    "src/review_agent/harness/budget.py": "15fe050b6b87cc72af7e470cc0ff043647756d7f103f88063189112eddad5a5d",
+    "src/review_agent/harness/coding_graph.py": "8edaff14a7c44d7e8b413e355fcb3e5c0933ff99ac9a0c306a5498df328860e7",
+    "src/review_agent/harness/context.py": "a7eaba27fd5f4ec54e40f7086134f58bd1f052f57278dc8c0541708e1dfb0036",
+    "src/review_agent/harness/mcp/__init__.py": "9dd5a7573b4391693d2a9d4e0645debb55e708889ae9898ca13fcab9fc9679e3",
+    "src/review_agent/harness/mcp/config.py": "5f4a5553e04f2c2674d5ced3d4eb052dec72fb7e1980619c292bc4a24a6f4563",
+    "src/review_agent/harness/mcp/normalize.py": "a9563c50b3355de431cfde760a4d2ae6358f6c373c0a1a97c9d0dbd74aa073e0",
+    "src/review_agent/harness/mcp/schema.py": "59d19cb11626e8a0db259bb0513363a18ff2017807a08d57d2d9e5ddcb956356",
+    "src/review_agent/harness/mcp/session.py": "8a5f406f63be07a3e285d7683c3bfdcd75b492bfc4d1cedc129f101d011a42b7",
+    "src/review_agent/harness/memory/__init__.py": "042465f0758f1ff43f18af797ecee761bf891f2e9bdd4bf3195f1dcc80a874f5",
+    "src/review_agent/harness/memory/extractor.py": "a2b9b807a55da73360325ae5b820054e08688cc250de2a4d1ba021dc5ecab820",
+    "src/review_agent/harness/memory/loader.py": "08ff8e5b59febd540a91c01acfd14382cd5ad418f49ca41c3b83d2378a516928",
+    "src/review_agent/harness/memory/manager.py": "1c25ab9a3b6b92059a396764fbe17e8f18053ee16ddb60fd68dcd3016e943b70",
+    "src/review_agent/harness/memory/models.py": "b4989d5cbf44bd82c3836889fa0735c5fd0af3cc24755f900b648cd39da6d9fc",
+    "src/review_agent/harness/memory/organizer.py": "8dc9e4b5d9003448e40795587dfa37e9a00e42277e51bba17cdcb00750c2185a",
+    "src/review_agent/harness/memory/store.py": "b57e078ae10aa9a97f0a9e43025a9cc32eb7da5d2b45005e676ac7cc316ac605",
+    "src/review_agent/harness/model_client.py": "62c2745fca72764daf5ad21c1635d5e9280b5b5ddf307b229ae22a9994448b40",
+    "src/review_agent/harness/models.py": "9e96527df8984d4b5b7b9afe142d0c1b56cb39c4c4ba92889e466ae5cc2b68b9",
+    "src/review_agent/harness/review_state.py": "4a57e0a9d86e447fe161dd934759d8edbffeaa36b1bc0adcedc09aeb1ccf4803",
+    "src/review_agent/harness/review_target.py": "a9fffd7c40f214cd0805b7c6001a2571050b4fb3454d336ca87b815470ea7e0f",
+    "src/review_agent/harness/reviewer.py": "d1e565d0cf6d61c06fe1369768b7992eb648b4f556feee3a30eb6edf516927dd",
+    "src/review_agent/harness/runtime.py": "484052c3692e3104d623b9eff39326e08baa1827b92320cefe64dad4e1f87165",
+    "src/review_agent/harness/skills/__init__.py": "9215ab5406dbf0223662e1ee549679b0fe0f86176356bf86a91915a11e7065e1",
+    "src/review_agent/harness/skills/loader.py": "9b512bc87cb2de79ebc3be1f7c5b4e58f37f45649e8c9dffdd2f73711adee43d",
+    "src/review_agent/harness/skills/models.py": "63373214477c4f94cf34c236250f4a060b7e480320daff904238fc200add0188",
+    "src/review_agent/harness/skills/parse.py": "b86e71f08a0027df5003c9577dcee1f734120004d933eee51ffeb5c01a26dea5",
+    "src/review_agent/harness/task_store.py": "e2f475b8e8e412c74e93c9daf3b043816f2e603b3b5bcd36532c9c1829bd1992",
+    "src/review_agent/harness/tool_params.py": "8614705d0c4d70e64446a17a28a126512e8da06a49fbcc66b6e67e00211424b2",
+    "src/review_agent/harness/tools.py": "21f027fb1a030647655960d1a47dac732d82e347d2833d466622f4a4f20e25ef",
+    "src/review_agent/harness/workspace_revision.py": "5580f1808517633bf8ed891d9db6d17f87fcb276a05d0cf10d300d86394088a7",
+    "src/review_agent/mcp_servers/__init__.py": "f22ad4ab11f813074cf328bb0feec9f250d7ff656a6241c13ba564fb62e3485d",
+    "src/review_agent/mcp_servers/api_contract/__init__.py": "4201b32a569992294edf901d3b81a6a51e025db3c0194ea793165c0caf97d847",
+    "src/review_agent/mcp_servers/api_contract/__main__.py": "000653362a72430977f712269f24fcf4a3b1f79dfd1083337df1c224ce62fc7b",
+    "src/review_agent/mcp_servers/api_contract/catalog.py": "c3047858c07c3243e6a6cf1eb7226104764a97db5f1228a2c0988df936344ea2",
+    "src/review_agent/mcp_servers/api_contract/logic.py": "cffc6696136dbcec7a9a518088bcb3f29ded492b34931ea6657d516d5d0d1f8c",
+    "src/review_agent/mcp_servers/api_contract/server.py": "26625a325b4d3507c50044596e2ce6f724f796ea266f3f184c49888f54d87e6e",
+    "src/review_agent/memory/__init__.py": "7bb18095621b8f169a5a7bfb24dbf2162f3dfdb636e5eaed9d03518ca3b9a48e",
+    "src/review_agent/memory/conversation.py": "d9a0eb4c6aaf3cc14be8356e8658f664514b381d9b70db17a8535efddebbb9b7",
+    "src/review_agent/memory/router.py": "0678d76f30b4c4e68ed647411256d37b3ff1297170f673ed8d6a3298821a83ce",
+    "src/review_agent/models/__init__.py": "0ab40c88beb872173b9ad3f92b6e97f8cc4f75611eded1b3a78427902692f2fb",
+    "src/review_agent/models/context.py": "468a6d58c0a04ceacd625a436607611a153473294ac32981e2594d728f049ac1",
+    "src/review_agent/models/diff.py": "029a1eae5c62f83bac591aef8978c8ae0893f25829316cdca158cc56dfe99dc2",
+    "src/review_agent/models/finding.py": "65098008aafe3742e3b701e38d0af45eaa27a197c21421c28d108a51c59cd8c0",
+    "src/review_agent/models/pr.py": "dd2102cccb967f1edbd8a74f8ff73758ab157b93df235d61e3e7535bf6da1ecd",
+    "src/review_agent/models/report.py": "6296ae68b06af4d9f3abea25e78b5c3d8814a2ddb11e264111899e1d5f31ea10",
+    "src/review_agent/models/session.py": "44af89515b43fabb3c04f3c4ff3367cce7fd716232f1a10026776af0410186cd",
+    "src/review_agent/observability.py": "1dab10b8391186c2dad0c9ec72e46734155c14f704f77d0aa731f89f6a6ff4ec",
+    "src/review_agent/reviewers/__init__.py": "1d6ef99f117261013a35584d035ce4be29ef02e67654aa6fd0250f892a9e1f94",
+    "src/review_agent/reviewers/cross_file_policy.py": "11c82410636219e2dc83f667c7c0703da5855aed390706b17fd32f437f94ff12",
+    "src/review_agent/reviewers/cross_file_reviewer.py": "1a60652f0cea950db0921c017a39f57ed89da9fb190159d90d4cec9e12691581",
+    "src/review_agent/reviewers/finding_parser.py": "06be7c4ef62f1bb514459012a7af30252da4e0111f2e03a293d1eee03f70615f",
+    "src/review_agent/reviewers/finding_ranker.py": "6db57adf45fef9d0558dd5b285dc79fea2db72f0414f98b7041f993c8dc147d8",
+    "src/review_agent/reviewers/hunk_reviewer.py": "74e9c0246fddc89892aea0c205dac5da07713e29ec0f0cb6448f856696975573",
+    "src/review_agent/reviewers/llm_reviewer.py": "2ff281d9e898973dce89eafb8558f1a559d787f758ff3f6e2dcc6a93e48eecfa",
+    "src/review_agent/reviewers/outcome.py": "51312cf7efaebe412714eda6623439b42f20034df1714ae17ff31aee3ee95df3",
+    "src/review_agent/reviewers/prompts.py": "429a760a723ec392abf5326051d18f766140eec645f8f55a425f19f5794ef451",
+    "src/review_agent/services/__init__.py": "74469d0f4d164bd38612c933de6afa5175e86164d6d6c7a4991698fb7cc6a558",
+    "src/review_agent/services/command_runner.py": "16809e5803913d48dd168334aedb8db7de8cb9c195cc4919b88b65afa752d208",
+    "src/review_agent/services/dispatch.py": "52d42d2186437df33ad01ba9d847fab7cb64ae6086e673f1ab9051d59003c6f1",
+    "src/review_agent/services/executor.py": "22f8957ac4d7a8ad672a32d9276f164dd6bd258b23699a8add4b39aa6fe813f1",
+    "src/review_agent/services/factory.py": "1f91e8ab4cab50c0455069c24457bf3587cbfe0ce61b1c160378436315c05f51",
+    "src/review_agent/services/graph_checkpointer.py": "93aae9bc94024c5dc682e4d00cb7019e25cb1674fea6a73d97a82547e9d334d6",
+    "src/review_agent/services/lease.py": "2134a7073313b7ef586828eac5e1d01bf8efa4c27a87567a7c342ff662d31fe9",
+    "src/review_agent/services/orphans.py": "2cbdc0575909b00ec99403b45488dc8ccf1f05ee4a765c5c54b19ca374986228",
+    "src/review_agent/services/patch_apply.py": "8db5475dbc4592b06ceafd176babc93794a699d80b62ae714aa3c449920dd0de",
+    "src/review_agent/services/recovery.py": "f9fb618c4a9e4797dafc78710f5691f6ec205f95f16bef2c297b383560c141ae",
+    "src/review_agent/services/repo_cache.py": "303b4082c2fd8bd2da9c65adb3f611261f0263696e24079d68f8c433dc7d7717",
+    "src/review_agent/services/review_context.py": "9ad979a267910c914cc034b0294f1170faeaf040981473ebf3ff066c962c14bc",
+    "src/review_agent/services/review_service.py": "c634b1a0b54a39f94abe7c979dc7b3644a7e23f86f371d48764e5380c6448ca6",
+    "src/review_agent/services/review_store.py": "a91dcf37eb24b7a7a41993886272ccaa09e92d4abc4fa07f604caa273d65a62b",
+    "src/review_agent/services/run_attempt.py": "e2eb29fd62f0bc65e36680b65916fcf9bdf18159267f526409206cebed010825",
+    "src/review_agent/services/run_lock.py": "6e55b9d9ae67e393ce4e00920c42bc455a3802b8ca77c1cbbf5d1b9b6d73c52f",
+    "src/review_agent/services/session_service.py": "847586d8821abf1d0d4fe6ddc31e19727003c37790aca671ad30ec0d6517d1a2",
+    "src/review_agent/services/task_service.py": "d21f4012c40b59e2e8b232fe571a5dff123fa04591b9c795fa503b501a4d1fa7",
+    "src/review_agent/services/task_store_postgres.py": "59c927d54a1cdd7614c775ba4b740f2211c00b0ca7222e228c111fed12e7d4dc",
+    "src/review_agent/services/workspace_manager.py": "9eeac0bd8df959256e6b853c4403bdbf36a126e70ce240d0b6deb45a792bb031",
+    "src/review_agent/tools/__init__.py": "382fe77265cc7e5372f897f980b01112d783e7e80d555e08cb22919691f700ed",
+    "src/review_agent/tools/diff_tools.py": "7f628178cb7a06595d5083a9582438aae2b808f41daf3a132f3ba9e695d53bb4",
+    "src/review_agent/tools/github_tools.py": "8402d2f05616724be622042ecb82247c886721fdfe3a4b3ee20f1418f0a44619",
+    "src/review_agent/tools/python_analysis_tools.py": "6e1bd2f1aca35cae987a9256d9fb7477f8502bcd31997668683f8225897e0b00",
+    "src/review_agent/tools/repo_tools.py": "0b3cb3058af3eef65edb5846df5e69290f04f9dd5e1de8591889dbf965bb6ef1",
+    "src/review_agent/tools/report_tools.py": "42781f58e3f72e36324ea688ff1f4b66e1e74a39324ce22a710d5dcf745e482c",
+    "src/review_agent/tools/verification_tools.py": "fd82871534602de97c21c6039fcaeb7a4e0a826efe05ca02162440a6c13c86e0",
+    "src/review_agent/worker/__init__.py": "fa273df542d3632bd5e9f76639a06caccd3c22dfd614e2d4729b4ea14e1cef87",
+    "src/review_agent/worker/celery_app.py": "f939252b6638d18efee47f3c07e3adeb0c3df2f67fe7cea8215284bcaf99bbec",
+    "src/review_agent/worker/locks.py": "72c46169847d11ce29c29effb0296009a6cc8964d808cfea8e99b818f7f3a4e1",
+    "src/review_agent/worker/tasks.py": "f3e5b224e08cf534f12b9473965ac65224e6332b2fa555211176e4a248000138"
+  }
+}
