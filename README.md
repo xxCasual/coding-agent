@@ -163,7 +163,7 @@ npm --prefix frontend test
 npm --prefix frontend run build
 ```
 
-2026-10-06 全新 clone 结果：pytest 213 passed、13 skipped；跳过的是未配置 PostgreSQL（11）、Redis（1）及 Docker 守护进程（1）的集成测试，CI 中同样跳过，需按 [完整链路报告](docs/fullstack-validation.md) 另配专用库运行。前端类型检查、24 项测试与构建通过。
+2026-10-06 CI（GitHub Actions `ubuntu-latest`，自带 Docker）与本机启用 Docker 后结果一致：pytest 214 passed、12 skipped，含 Docker 执行与取消测试；跳过的是未配置 PostgreSQL（11）、Redis（1）的集成测试，需按 [完整链路报告](docs/fullstack-validation.md) 另配专用库运行。无 Docker 守护进程时 Docker 测试会跳过（213 passed、13 skipped）。前端类型检查、24 项测试与构建通过。
 
 日常只运行改动及其直接消费者的定向检查。例如复跑 R4 范围（不调用真实模型）：
 
