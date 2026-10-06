@@ -28,4 +28,6 @@ docker compose -p smoke-coding down
 
 integration job 启动 PostgreSQL 16、Redis 7 service 容器，先探测服务，运行 12 项 PostgreSQL、checkpoint、Redis 集成测试，并断言 JUnit 没有 skipped；另建空数据库运行上述 smoke。原 python/frontend job 保留。
 
+远端确认：[run 37419790628](https://github.com/xxCasual/coding-agent/actions/runs/37419790628)，提交 `895cdc7`，python / integration / frontend 全绿。
+
 本轮另外核对 TaskService、编码 runtime、恢复、Reviewer、Celery 相关回归：80 passed、1 skipped（该次未配置 Redis）；Redis 的独立服务测试已在上述 12 项中执行。worker 重启、取消和模型超时的历史多进程证据仍见 [原报告](../fullstack-validation.md)，当前确定性回归不会替代历史模型实验。
