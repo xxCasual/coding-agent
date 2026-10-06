@@ -210,7 +210,7 @@ class Executor:
         if cancel_flag is not None:
             cancel_flag.set()
         if handle.backend == "docker":
-            self._cancel_docker(handle, soft_timeout=soft_timeout)
+            self._cancel_docker(handle, proc, soft_timeout=soft_timeout)
         else:
             self._cancel_host(handle, proc, soft_timeout=soft_timeout)
         return self.wait(execution_id, timeout=soft_timeout + 5.0)
@@ -335,9 +335,10 @@ class Executor:
         pgid = handle.pgid or (proc.pid if proc else None)
         if pgid is None:
             return
+        # macOS reports EPERM instead of ESRCH when the group only holds unreaped zombies.
         try:
             os.killpg(pgid, signal.SIGTERM)
-        except ProcessLookupError:
+        except (ProcessLookupError, PermissionError):
             return
         deadline = time.time() + soft_timeout
         while time.time() < deadline:
@@ -346,21 +347,32 @@ class Executor:
             time.sleep(0.05)
         try:
             os.killpg(pgid, signal.SIGKILL)
-        except ProcessLookupError:
+        except (ProcessLookupError, PermissionError):
             return
 
-    def _cancel_docker(self, handle: ExecutionHandle, *, soft_timeout: float) -> None:
+    def _cancel_docker(
+        self,
+        handle: ExecutionHandle,
+        proc: subprocess.Popen[str] | None,
+        *,
+        soft_timeout: float,
+    ) -> None:
         name = handle.container_name
-        if not name:
-            return
-        subprocess.run(
-            ["docker", "stop", "-t", str(max(1, int(soft_timeout))), name],
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        # Ensure exit.
-        subprocess.run(["docker", "kill", name], capture_output=True, text=True, check=False)
+        if name:
+            subprocess.run(
+                ["docker", "stop", "-t", str(max(1, int(soft_timeout))), name],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            # Ensure exit.
+            subprocess.run(["docker", "kill", name], capture_output=True, text=True, check=False)
+        # The container does not exist yet while `docker run` is still pulling the image,
+        # so the client process itself must be terminated as well.
+        if proc is None or proc.poll() is None:
+            self._cancel_host(handle, proc, soft_timeout=soft_timeout)
+        if name:
+            subprocess.run(["docker", "rm", "-f", name], capture_output=True, text=True, check=False)
 
     def stop_persisted(
         self,
