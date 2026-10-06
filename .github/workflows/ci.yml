@@ -36,3 +36,55 @@ jobs:
       - run: npm --prefix frontend run build
       - name: Built web assets match the committed copy
         run: git diff --exit-code -- src/review_agent/web
+
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: review_agent
+          POSTGRES_PASSWORD: review_agent
+          POSTGRES_DB: review_agent_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U review_agent -d review_agent_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      REVIEW_AGENT_DATABASE_URL: postgresql+psycopg://review_agent:review_agent@127.0.0.1:5432/review_agent_test
+      REVIEW_AGENT_CELERY_BROKER: redis://127.0.0.1:6379/15
+      REVIEW_AGENT_EXECUTOR_BACKEND: host
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          python-version: "3.11"
+      - run: uv sync --frozen --extra dev
+      - name: Required service probes
+        run: |
+          uv run python - <<'PY'
+          import os, psycopg, redis
+          from review_agent.services.graph_checkpointer import sqlalchemy_url_to_psycopg
+          with psycopg.connect(sqlalchemy_url_to_psycopg(os.environ['REVIEW_AGENT_DATABASE_URL']), autocommit=True) as db:
+              assert db.execute('SELECT 1').fetchone() == (1,)
+              db.execute('CREATE DATABASE review_agent_smoke')
+          assert redis.Redis.from_url(os.environ['REVIEW_AGENT_CELERY_BROKER']).ping()
+          PY
+      - name: PostgreSQL, checkpoint and Redis integration tests (no skips)
+        run: |
+          uv run --extra dev pytest -q -rs --junitxml=integration.xml tests/test_postgres_task_store.py tests/test_graph_checkpointer.py tests/test_celery_dispatch.py::test_celery_send_task_reaches_redis
+          uv run python - <<'PY'
+          import xml.etree.ElementTree as ET
+          root = ET.parse('integration.xml').getroot()
+          assert not root.findall('.//skipped'), 'Required integration tests were skipped'
+          PY
+      - name: API, prefork worker, approval and restart smoke
+        env:
+          REVIEW_AGENT_DATABASE_URL: postgresql+psycopg://review_agent:review_agent@127.0.0.1:5432/review_agent_smoke
+        run: uv run --extra dev python scripts/fullstack-smoke.py --report fullstack-smoke.json

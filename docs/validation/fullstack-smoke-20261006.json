@@ -1,0 +1,31 @@
+{
+  "date_utc": "2026-10-06T05:31:57.271697+00:00",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "python": "3.11.15",
+  "code_commit": "7f112a8dd30710faf0fe950b5fc97448ff4314eb",
+  "model": "scripted fake (no API calls)",
+  "worker_pool": "prefork, concurrency=1",
+  "run_id": "bf3fed53-14c4-4ad8-b502-4422728b9939",
+  "run_status": "succeeded",
+  "verification": "passed",
+  "checks": [
+    "empty database migration",
+    "PostgreSQL checkpoint",
+    "HTTP API and Web entry",
+    "Redis dispatch and prefork worker",
+    "idempotent HTTP submission",
+    "approval paused before source modification",
+    "API and worker restart during approval",
+    "checkpoint continuation after approval",
+    "real pytest acceptance",
+    "delivery.patch download and SHA-256",
+    "SSE Last-Event-ID continuation",
+    "duplicate Celery delivery",
+    "terminal state survives API restart",
+    "source repository unchanged"
+  ],
+  "model_quality_evaluated": false,
+  "working_tree_dirty": true,
+  "harness_sha256": "623640f2fcbd1cf813dae652202f824f2107e46fc9af7d4031929e382556a47a",
+  "note": "Recorded against baseline commit plus the uncommitted validation harness; no model API calls."
+}

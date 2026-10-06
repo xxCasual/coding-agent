@@ -1,5 +1,7 @@
 # 模块实际进度
 
+公开仓补验（2026-10-06）：基础 CI 已修复；新增 PostgreSQL/Redis service job、12 项必跑集成测试和可复现的 API + prefork worker 无 Key 完整链路 smoke，本地已通过。见 [补验记录](../validation/fullstack-smoke.md)。以下开发期提交和环境记录保留其原始时点；不代表公开历史包含这些提交。
+
 最后更新：2026-09-24。升级专用仓：`Code_review_Agent_upgrade`（无 remote）。上游对照基线：`0d9e602`。本仓 init：`4095af7`。
 
 最新补验（2026-09-24）：**R2-VDB 已关闭**；专用 PostgreSQL 与 API/worker/CLI/Web 链路通过，实际接口开发及同会话规划完成。见 [完整链路报告](../fullstack-validation.md)。下文旧记录保留历史时点。
