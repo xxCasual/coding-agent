@@ -2,9 +2,11 @@
 
 **实际正式样本：n = 16（精简口径）。** 2026-09-10 按 heldout 中 8 个任务、baseline + full 各一次跑完；隐藏验收 **16/16**。这是小样本，**不是** 24×3=144 的默认正式规模，禁止外推或把 75% 完成率、约 20% token 节省写成项目成绩。
 
-冻结实现记录：`--code-commit b08045b`（`docs: record desktop chat MVP completion`）。评测进程工作树另有未提交的 D04 耦合加固改动。Runner 与任务集见 [eval/README.md](../eval/README.md)。JSONL 在 gitignored 的 `eval/results/{baseline,full}.jsonl`。
+冻结实现记录：`--code-commit b08045b`（`docs: record desktop chat MVP completion`）。评测进程工作树另有未提交的 D04 耦合加固改动。`b08045b` 属于本地开发历史，公开仓库是之后整理的单次提交；公开的 manifest、隐藏验收脚本和三个样例与该版本逐文件一致。Runner 与任务集见 [eval/README.md](../eval/README.md)。原始 JSONL 已原样公开在 [eval/v02-20260910/](../eval/v02-20260910/)，附复算命令。
 
 ## 已执行的命令
+
+以下为历史评测当时的原样命令（conda 环境 `review-agent`）；当前推荐的 uv 安装与检查方式见 [README](../README.md#检查)。
 
 最小单 Agent（关 Skill / 上下文优化 / Reviewer）：
 

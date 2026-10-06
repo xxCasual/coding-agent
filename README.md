@@ -20,6 +20,15 @@ Web 输入区可选择模式及审查范围，CLI 使用下方参数。任务开
 
 ## 快速开始
 
+### 无 Key 冒烟（推荐先跑）
+
+```bash
+uv sync --frozen --extra dev
+uv run --extra dev python scripts/fake-model-smoke.py
+```
+
+脚本在临时目录建一个带失败测试的 Git 仓库并登记，经 HTTP API 提交开发任务，验收命令为 `pytest -q`；脚本化的假模型读取文件并提交补丁。预期输出 `run_status: succeeded`、`verification: passed`、可下载的 `delivery.patch`，且原仓库未被修改，最后一行为 `SMOKE OK`。它只验证平台流程（登记、隔离副本、工具、验收、产物、API），不代表模型编码能力，也不经过 PostgreSQL / Celery。2026-10-06 已在 macOS（Apple Silicon）全新 clone 上验证。
+
 ### Compose 一键 Demo
 
 ```bash
@@ -88,6 +97,8 @@ review-agent agent --workspace <registered-id> --mode review --review-path app.p
 
 已实现：Coding API 与 SSE 续读、CLI/Web、LangGraph 编码循环、PostgreSQL 存储与 Celery 派发、租约/文件锁、审批/取消/恢复、三个内置 Skill、可选 MCP stdio，以及独立只读 Reviewer。默认执行后端仍为 Docker；host 需显式配置。未知副作用进入 `needs_attention`，不自动重放。
 
+**隔离边界：**“隔离副本”指每次运行把仓库复制到独立工作目录，原仓不被修改；这是文件层面的隔离。下表所有真实模型运行和链路验证都使用 `host` 后端，命令以当前用户权限直接在本机（Compose Demo 中为容器内）执行，没有进程、网络或资源隔离，只应用于可信仓库和需求。Docker 后端（默认镜像 `python:3.12-slim`、网络 `none`）只有自动化测试覆盖，尚未用于真实任务。
+
 **验证记录按各自范围使用：**
 
 | 记录 | 实际结果 | 不能推断什么 |
@@ -96,7 +107,7 @@ review-agent agent --workspace <registered-id> --mode review --review-path app.p
 | R3 客户端（2026-09-22） | 前端 24 项检查、类型检查、构建及本机 HTTP/SSE 核对通过 | HTTP/SSE 使用 FakeModel，并非真模型全栈演示 |
 | R4 最新定向检查（2026-09-23） | 84 passed，覆盖 Reviewer、运行时、TaskService、恢复与预算保护 | 不代表全仓测试或 PostgreSQL 实库补验 |
 | R4 真实使用 | 开发、只审查、续聊、只规划四场景成功；新 `/clamp` 配对两侧成功并通过隐藏验收，Reviewer off 无委派 | 仅 host + 内存 TaskService，n=1 配对；不证明 Reviewer 普遍收益或任意任务稳定完成 |
-| 历史 V02（2026-09-10） | heldout 8 任务 × 两组，n=16，隐藏验收 16/16 | baseline/full 同时切换多个因素，不能当 Reviewer 单变量对照；24×3 未跑 |
+| 历史 V02（2026-09-10） | heldout 8 任务 × 两组，n=16，代码产物隐藏验收 16/16；运行状态两组各 5/8 succeeded，见 [原始 JSONL](eval/v02-20260910/) | baseline/full 同时切换多个因素，不能当 Reviewer 单变量对照；24×3 未跑 |
 
 [R4 最新报告](docs/r4-followup-evidence.md) 保留首轮失败、修复与费用记录；历史成绩见 [eval-report](docs/eval-report.md)。不要把 75% 完成率或 20% token 节省等原目标写成实测结果。
 
@@ -140,6 +151,19 @@ conda run -n review-agent python -c "from review_agent.demo import write_demo_re
 前端源码在 `frontend/`。改 UI 后 `npm --prefix frontend run build`，产物在 `src/review_agent/web`，由 FastAPI 托管。
 
 ## 检查
+
+CI（`.github/workflows/ci.yml`）与本地使用相同命令：
+
+```bash
+uv sync --frozen --extra dev
+REVIEW_AGENT_EXECUTOR_BACKEND=host uv run --extra dev pytest -q -rs
+npm --prefix frontend ci
+npm --prefix frontend run typecheck
+npm --prefix frontend test
+npm --prefix frontend run build
+```
+
+2026-10-06 全新 clone 结果：pytest 213 passed、13 skipped；跳过的是未配置 PostgreSQL（11）、Redis（1）及 Docker 守护进程（1）的集成测试，CI 中同样跳过，需按 [完整链路报告](docs/fullstack-validation.md) 另配专用库运行。前端类型检查、24 项测试与构建通过。
 
 日常只运行改动及其直接消费者的定向检查。例如复跑 R4 范围（不调用真实模型）：
 
